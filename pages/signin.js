@@ -126,16 +126,16 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
               <BiLeftArrowAlt />
             </div>
             <span>
-              We'd be happy to join us !{' '}
+              Terima Kasih Memilih Kami!{' '}
               <Link legacyBehavior href="/">
-                Go Store
+                Ke Toko
               </Link>
             </span>
           </div>
           <div className={styles.login__form}>
-            <h1>Sign in</h1>
+            <h1>Masuk</h1>
             <p>
-              Get access to one of the best Eshopping services in the world.
+              Silakan masukkan informasi akun Anda untuk melanjutkan.
             </p>
             <Formik
               enableReinitialize
@@ -169,20 +169,20 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
                     placeholder="Password"
                     onChange={handleChange}
                   />
-                  <CircledIconBtn type="submit" text="Sign in" />
+                  <CircledIconBtn type="submit" text="Masuk" />
                   {login_error && (
                     <span className={styles.error}>{login_error}</span>
                   )}
                   <div className={styles.forgot}>
                     <Link legacyBehavior href="/auth/forgot">
-                      Forgot password ?
+                      Lupa password ?
                     </Link>
                   </div>
                 </Form>
               )}
             </Formik>
             <div className={styles.login__socials}>
-              <span className={styles.or}>Or continue with</span>
+              <span className={styles.or}>Atau Lanjutkan dengan</span>
               <div className={styles.login__socials_wrap}>
                 {providers.map((provider) => {
                   if (provider.name == 'Credentials') {
@@ -195,7 +195,7 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
                         onClick={() => signIn(provider.id)}
                       >
                         <img src={`../../icons/${provider.name}.png`} alt="" />
-                        Sign in with {provider.name}
+                        Login dengan {provider.name}
                       </button>
                     </div>
                   );
@@ -206,9 +206,9 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
         </div>
         <div className={styles.login__container}>
           <div className={styles.login__form}>
-            <h1>Sign up</h1>
+            <h1>Daftar Baru</h1>
             <p>
-              Get access to one of the best Eshopping services in the world.
+              Sudah siap untuk belanja? Masukkan informasi akun Anda untuk memulai.
             </p>
             <Formik
               enableReinitialize
@@ -229,14 +229,14 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
                     type="text"
                     name="name"
                     icon="user"
-                    placeholder="Full Name"
+                    placeholder="Nama Lengkap"
                     onChange={handleChange}
                   />
                   <LoginInput
                     type="text"
                     name="email"
                     icon="email"
-                    placeholder="Email Address"
+                    placeholder="Alamat Email"
                     onChange={handleChange}
                   />
                   <LoginInput
@@ -250,10 +250,10 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
                     type="password"
                     name="conf_password"
                     icon="password"
-                    placeholder="Re-Type Password"
+                    placeholder="Masukkan Ulang Password"
                     onChange={handleChange}
                   />
-                  <CircledIconBtn type="submit" text="Sign up" />
+                  <CircledIconBtn type="submit" text="Daftar" />
                 </Form>
               )}
             </Formik>

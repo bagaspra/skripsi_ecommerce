@@ -22,7 +22,7 @@ export default function CartHeader({ cartItems, selected, setSelected }) {
         <div
           className={`${styles.checkbox} ${active ? styles.active : ''}`}
         ></div>
-        <span>Select all items</span>
+        <span>Pilih semua barang</span>
       </div>
     </div>
   );

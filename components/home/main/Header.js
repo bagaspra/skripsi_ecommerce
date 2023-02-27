@@ -7,17 +7,17 @@ export default function Header() {
       <ul>
         <li>
           <Link legacyBehavior href="">
-            <div>Store</div>
+            Produk
           </Link>
         </li>
         <li>
           <Link legacyBehavior href="">
-            <div>Electronics</div>
+            Laptop
           </Link>
         </li>
         <li>
           <Link legacyBehavior href="">
-            <div>Watches</div>
+            Komputer
           </Link>
         </li>
       </ul>

@@ -2,23 +2,15 @@ import styles from './styles.module.scss';
 import { menuArray } from '../../../data/home';
 import Link from 'next/link';
 //-------
-import {
-  GiLargeDress,
-  GiClothes,
-  Gi3DHammer,
-  GiWatch,
-  GiBallerinaShoes,
-  GiHeadphones,
-  GiHealthCapsule,
-  GiSportMedal,
-  GiBigDiamondRing,
-} from 'react-icons/gi';
-import { MdOutlineSportsEsports, MdOutlineSmartToy } from 'react-icons/md';
-import { BiCameraMovie, BiGift, BiCategory } from 'react-icons/bi';
-import { FaBaby } from 'react-icons/fa';
-import { HiOutlineHome } from 'react-icons/hi';
-import { AiOutlineSecurityScan } from 'react-icons/ai';
-import { BsPhoneVibrate } from 'react-icons/bs';
+import { FaMemory } from 'react-icons/fa';
+import { GiCarDoor, GiProcessor } from 'react-icons/gi';
+import { MdDeveloperBoard } from 'react-icons/md';
+import { BiHeadphone, BiCategory } from 'react-icons/bi';
+import { BsLaptop } from 'react-icons/bs';
+import { FiMonitor } from 'react-icons/fi';
+import { GoCircuitBoard } from 'react-icons/go';
+import { GrNetworkDrive, GrCloudComputer, GrStorage } from 'react-icons/gr';
+import { HiServer } from 'react-icons/hi';
 //-------
 export default function Menu() {
   return (
@@ -36,39 +28,29 @@ export default function Menu() {
               <Link href={item.link} legacyBehavior>
                 <a>
                   {i == 0 ? (
-                    <GiLargeDress />
+                    <BiHeadphone />
                   ) : i == 1 ? (
-                    <GiClothes />
+                    <GiCarDoor />
                   ) : i == 2 ? (
-                    <GiHeadphones />
+                    <BsLaptop />
                   ) : i == 3 ? (
-                    <GiWatch />
+                    <FaMemory />
                   ) : i == 4 ? (
-                    <HiOutlineHome />
+                    <FiMonitor />
                   ) : i == 5 ? (
-                    <GiHealthCapsule />
+                    <MdDeveloperBoard />
                   ) : i == 6 ? (
-                    <GiBallerinaShoes />
+                    <GoCircuitBoard />
                   ) : i == 7 ? (
-                    <GiBigDiamondRing />
+                    <GrNetworkDrive />
                   ) : i == 8 ? (
-                    <GiSportMedal />
+                    <GrCloudComputer />
                   ) : i == 9 ? (
-                    <FaBaby />
+                    <GiProcessor />
                   ) : i == 10 ? (
-                    <BiCameraMovie />
+                    <HiServer />
                   ) : i == 11 ? (
-                    <MdOutlineSportsEsports />
-                  ) : i == 12 ? (
-                    <BsPhoneVibrate />
-                  ) : i == 13 ? (
-                    <MdOutlineSmartToy />
-                  ) : i == 14 ? (
-                    <BiGift />
-                  ) : i == 15 ? (
-                    <Gi3DHammer />
-                  ) : i == 16 ? (
-                    <AiOutlineSecurityScan />
+                    <GrStorage />
                   ) : (
                     ''
                   )}

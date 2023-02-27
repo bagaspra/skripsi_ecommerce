@@ -12,10 +12,10 @@ export default function Reviews({ product }) {
   return (
     <div className={styles.reviews}>
       <div className={styles.reviews__container}>
-        <h1>Customer Reviews ({product.reviews.length})</h1>
+        <h1>Ulasan Pembeli ({product.reviews.length})</h1>
         <div className={styles.reviews__stats}>
           <div className={styles.reviews__stats_overview}>
-            <span>Average Rating</span>
+            <span>Rata-rata Ulasan</span>
             <div className={styles.reviews__stats_overview_rating}>
               <Rating
                 name="half-rating-read"
@@ -24,7 +24,7 @@ export default function Reviews({ product }) {
                 readOnly
                 style={{ color: '#FACF19' }}
               />
-              {product.rating == 0 ? 'No review yet.' : product.rating}
+              {product.rating == 0 ? 'Belum ada ulasan.' : product.rating}
             </div>
           </div>
           <div className={styles.reviews__stats_reviews}>
@@ -51,7 +51,7 @@ export default function Reviews({ product }) {
           <AddReview product={product} setReviews={setReviews} />
         ) : (
           <button onClick={() => signIn()} className={styles.login_btn}>
-            Login to add review
+            Masuk untuk mengulas
           </button>
         )}
         <Table

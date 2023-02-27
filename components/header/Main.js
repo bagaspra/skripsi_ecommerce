@@ -9,6 +9,9 @@ export default function Main({ searchHandler }) {
   const router = useRouter();
   const [query, setQuery] = useState(router.query.search || '');
   const { cart } = useSelector((state) => ({ ...state }));
+
+  let cartHold = 0;
+  const cartQty = cart?.cartItems?.map((item, i) => (cartHold += item.qty));
   const handleSearch = (e) => {
     e.preventDefault();
     if (router.pathname !== '/browse') {
@@ -36,11 +39,11 @@ export default function Main({ searchHandler }) {
             <RiSearch2Line />
           </button>
         </form>
-        <Link href="/cart" className={styles.cart}>
-          <div>
+        <Link legacyBehavior href="/cart">
+          <a className={styles.cart}>
             <FaOpencart />
-            <span>0</span>
-          </div>
+            <span>{cartHold}</span>
+          </a>
         </Link>
       </div>
     </div>

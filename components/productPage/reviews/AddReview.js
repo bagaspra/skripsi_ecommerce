@@ -102,7 +102,7 @@ export default function AddReview({ product, setReviews }) {
         <div className={styles.flex} style={{ gap: '10px' }}>
           <Select
             property={size}
-            text="Size"
+            text="Varian"
             data={product.allSizes.filter((x) => x.size !== size)}
             handleChange={setSize}
           />
@@ -124,7 +124,7 @@ export default function AddReview({ product, setReviews }) {
           name="review"
           value={review}
           onChange={(e) => setReview(e.target.value)}
-          placeholder="Write your review here"
+          placeholder="Tulis Ulasanmu di sini"
         />
         <Rating
           name="half-rating-read"
@@ -139,7 +139,7 @@ export default function AddReview({ product, setReviews }) {
           onClick={() => handleSubmit()}
           disabled={loading}
         >
-          Submit Review{' '}
+          Kirim Ulasan{' '}
           {loading && <ClipLoader loading={loading} color="#fff" />}
         </button>
       </div>

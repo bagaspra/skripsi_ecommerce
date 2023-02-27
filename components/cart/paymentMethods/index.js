@@ -7,7 +7,6 @@ export default function PaymentMethods() {
       <div className={styles.images}>
         <img src="../../../images/payment/visa.webp" alt="" />
         <img src="../../../images/payment/mastercard.webp" alt="" />
-        <img src="../../../images/payment/paypal.webp" alt="" />
       </div>
       <h2 className={styles.header}>Buyer Protection</h2>
       <div className={styles.protection}>

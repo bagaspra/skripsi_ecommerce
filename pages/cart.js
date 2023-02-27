@@ -8,8 +8,6 @@ import { updateCart } from '../store/cartSlice';
 import CartHeader from '../components/cart/cartHeader';
 import Checkout from '../components/cart/checkout';
 import PaymentMethods from '../components/cart/paymentMethods';
-import ProductsSwiper from '../components/productsSwiper';
-import { women_swiper } from '../data/home';
 import { useSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { saveCart } from '../requests/user';
@@ -76,7 +74,6 @@ export default function cart() {
         ) : (
           <Empty />
         )}
-        <ProductsSwiper products={women_swiper} />
       </div>
     </>
   );

@@ -24,11 +24,11 @@ export default function NewsLetter() {
   };
   return (
     <div className={styles.footer__newsletter}>
-      <h3>SIGN UP FOR OUR NEWSLETTER</h3>
+      <h3>DAFTAR UNTUK BERLANGGANAN BULLETIN KAMI</h3>
       <div className={styles.footer__flex}>
         <input
           type="text"
-          placeholder="Your Email Address"
+          placeholder="Alamat Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -38,16 +38,16 @@ export default function NewsLetter() {
           style={{ cursor: `${loading ? 'not-allowed' : ''}` }}
           onClick={() => subscribe()}
         >
-          SUBSCRIBE
+          LANGGANAN
         </button>
       </div>
       {loading && <div className="">loading...</div>}
       {error && <div className="error">{error}</div>}
       {success && <div className="success">{success}</div>}
       <p>
-        By clicking the SUBSCRIBE button, you are agreeing to{' '}
+        Dengan mengklik tombol BERLANGGANAN, Anda setuju untuk{' '}
         <Link legacyBehavior href="">
-          our Privacy & Cookie Policy
+          Kebijakan Privasi & Cookie kami
         </Link>
       </p>
     </div>

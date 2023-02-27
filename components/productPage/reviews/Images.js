@@ -59,7 +59,7 @@ export default function Images({ images, setImages }) {
         style={{ width: '150px' }}
         onClick={() => inputRef.current.click()}
       >
-        Add images
+        Tambah Gambar
       </button>
       {error && <div className={styles.error}>{error}</div>}
       <div className={styles.imgs_wrap}>

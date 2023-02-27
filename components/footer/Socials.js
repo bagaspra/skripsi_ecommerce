@@ -11,7 +11,7 @@ export default function Socials() {
   return (
     <div className={styles.footer__socials}>
       <section>
-        <h3>STAY CONNECTED</h3>
+        <h3>Sosial Media Kami</h3>
         <ul>
           <li>
             <a href="/" target="_blank">

@@ -15,7 +15,7 @@ export default function checkout({ cart, user }) {
   const [totalAfterDiscount, setTotalAfterDiscount] = useState('');
   const [selectedAddress, setSelectedAddress] = useState('');
   useEffect(() => {
-    let check = addresses.find((ad) => ad.active == true);
+    let check = addresses?.find((ad) => ad.active == true);
     if (check) {
       setSelectedAddress(check);
     } else {
@@ -55,8 +55,8 @@ export default function checkout({ cart, user }) {
 export async function getServerSideProps(context) {
   db.connectDb();
   const session = await getSession(context);
-  const user = await User.findById(session.user.id);
-  const cart = await Cart.findOne({ user: user._id });
+  const user = await User?.findById(session.user.id);
+  const cart = await Cart?.findOne({ user: user._id });
   db.disconnectDb();
   if (!cart) {
     return {

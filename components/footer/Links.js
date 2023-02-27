@@ -23,14 +23,14 @@ export default function Links() {
 }
 const links = [
   {
-    heading: 'SHOPPAY',
+    heading: 'Astrindo',
     links: [
       {
-        name: 'About us',
+        name: 'Tentang Kami',
         link: '',
       },
       {
-        name: 'Contact us',
+        name: 'Hubungi Kami',
         link: '',
       },
       {
@@ -44,47 +44,47 @@ const links = [
     ],
   },
   {
-    heading: 'HELP & SUPPORT',
+    heading: 'Bantuan',
     links: [
       {
-        name: 'Shipping Info',
+        name: 'Info Pengiriman',
         link: '',
       },
       {
-        name: 'Returns',
+        name: 'Pengembalian',
         link: '',
       },
       {
-        name: 'How To Order',
+        name: 'Cara Memesanan',
         link: '',
       },
       {
-        name: 'How To Track',
+        name: 'Cara Melacak',
         link: '',
       },
       {
-        name: 'Size Guide',
+        name: 'Panduan',
         link: '',
       },
     ],
   },
   {
-    heading: 'Customer service',
+    heading: 'Pelayanan Pelanggan',
     links: [
       {
-        name: 'Customer service',
+        name: 'Pelayanan Pelanggan',
         link: '',
       },
       {
-        name: 'Terms and Conditions',
+        name: 'Syarat dan Ketentuan',
         link: '',
       },
       {
-        name: 'Consumers (Transactions)',
+        name: 'Transaksi',
         link: '',
       },
       {
-        name: 'Take our feedback survey',
+        name: 'Isi Survey',
         link: '',
       },
     ],

@@ -20,13 +20,13 @@ export default function Top({ country }) {
           </li> */}
           <li className={styles.li}>
             <MdSecurity />
-            <span>Buyer Protection</span>
+            <span>Perlindungan Pembeli</span>
           </li>
           <li className={styles.li}>
-            <span>Customer Service</span>
+            <span>Pelayanan pelanggan</span>
           </li>
           <li className={styles.li}>
-            <span>Help</span>
+            <span>Bantuan</span>
           </li>
           <li className={styles.li}>
             <BsSuitHeart />

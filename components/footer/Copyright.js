@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import styles from './styles.module.scss';
-import { IoLocationSharp } from 'react-icons/io5';
-export default function Copyright({ country }) {
+export default function Copyright() {
   return (
     <div className={styles.footer__copyright}>
       <section>©2023 Astrindo Shop All Rights Resereved.</section>
@@ -12,11 +11,6 @@ export default function Copyright({ country }) {
               <Link href={link.link}>{link.name}</Link>
             </li>
           ))}
-          {/* <li>
-            <a>
-              <IoLocationSharp /> {country.name}
-            </a>
-          </li> */}
         </ul>
       </section>
     </div>
@@ -24,23 +18,19 @@ export default function Copyright({ country }) {
 }
 const data = [
   {
-    name: 'Privacy Center',
+    name: 'Pusat Privasi',
     link: '',
   },
   {
-    name: 'Privacy & Cookie Policy',
+    name: 'Kebijakan Privasi & Cookie kami',
     link: '',
   },
   {
-    name: 'Manage Cookies',
+    name: 'Kelola Cookie',
     link: '',
   },
   {
-    name: 'Terms & Conditions',
+    name: 'Syarat dan Ketentuan',
     link: '',
-  },
-  {
-    name: 'Copyright Notice',
-    link: '',
-  },
+  }
 ];

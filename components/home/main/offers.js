@@ -40,7 +40,7 @@ export default function Offers() {
                 <img src={offer.image} alt="" />
               </div>
             </Link>
-            <span>{offer.price}$</span>
+            <span>Rp.{offer.price}</span>
             <span>-{offer.discount}%</span>
           </SwiperSlide>
         ))}

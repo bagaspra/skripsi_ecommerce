@@ -39,7 +39,7 @@ export default function Infos({ product, setActiveImg }) {
   }, [router.query.size]);
   const addToCartHandler = async () => {
     if (!router.query.size) {
-      setError('Please Select a size');
+      setError('Tolong Masukan Tipe');
       return;
     }
     const { data } = await axios.get(
@@ -140,26 +140,25 @@ export default function Infos({ product, setActiveImg }) {
         </div>
         <span className={styles.infos__shipping}>
           {product.shipping
-            ? `+${product.shipping}$ Shipping fee`
-            : 'Free Shipping'}
+            ? `Rp. ${product.shipping}$ Biaya Pengiriman`
+            : 'Gratis Pengiriman'}
         </span>
         <span>
           {size
             ? product.quantity
             : product.sizes.reduce((start, next) => start + next.qty, 0)}{' '}
-          pieces available.
+          tersedia.
         </span>
         <div className={styles.infos__sizes}>
-          <h4>Select a Size : </h4>
+          <h4>Pilih Varian : </h4>
           <div className={styles.infos__sizes_wrap}>
             {product.sizes.map((size, i) => (
               <Link
                 href={`/product/${product.slug}?style=${router.query.style}&size=${i}`}
               >
                 <div
-                  className={`${styles.infos__sizes_size} ${
-                    i == router.query.size && styles.active_size
-                  }`}
+                  className={`${styles.infos__sizes_size} ${i == router.query.size && styles.active_size
+                    }`}
                   onClick={() => setSize(size.size)}
                 >
                   {size.size}
@@ -202,7 +201,7 @@ export default function Infos({ product, setActiveImg }) {
             onClick={() => addToCartHandler()}
           >
             <BsHandbagFill />
-            <b>ADD TO CART</b>
+            <b>MASUK KERANJANG</b>
           </button>
           <button onClick={() => handleWishlist()}>
             <BsHeart />

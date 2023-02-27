@@ -5,7 +5,6 @@ import Top from './Top';
 export default function Header({ country, searchHandler }) {
   return (
     <header className={styles.header}>
-      <Ad />
       <Top />
       <Main searchHandler={searchHandler} />
     </header>
