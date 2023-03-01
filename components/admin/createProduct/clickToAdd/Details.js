@@ -16,7 +16,6 @@ export default function Details({ details, product, setProduct }) {
       setProduct({ ...product, details: values });
     }
   };
-  console.log('product details', product.details);
   return (
     <div>
       <div className={styles.header}>Details</div>
@@ -39,41 +38,41 @@ export default function Details({ details, product, setProduct }) {
       )}
       {details
         ? details.map((detail, i) => (
-            <div className={styles.clicktoadd} key={i}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={detail.name}
-                onChange={(e) => handleDetails(i, e)}
-              />
-              <input
-                type="text"
-                name="value"
-                placeholder="Value"
-                value={detail.value}
-                onChange={(e) => handleDetails(i, e)}
-              />
+          <div className={styles.clicktoadd} key={i}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={detail.name}
+              onChange={(e) => handleDetails(i, e)}
+            />
+            <input
+              type="text"
+              name="value"
+              placeholder="Value"
+              value={detail.value}
+              onChange={(e) => handleDetails(i, e)}
+            />
 
-              <>
-                <BsFillPatchMinusFill onClick={() => handleRemove(i)} />
-                <BsFillPatchPlusFill
-                  onClick={() => {
-                    setProduct({
-                      ...product,
-                      details: [
-                        ...details,
-                        {
-                          name: '',
-                          value: '',
-                        },
-                      ],
-                    });
-                  }}
-                />
-              </>
-            </div>
-          ))
+            <>
+              <BsFillPatchMinusFill onClick={() => handleRemove(i)} />
+              <BsFillPatchPlusFill
+                onClick={() => {
+                  setProduct({
+                    ...product,
+                    details: [
+                      ...details,
+                      {
+                        name: '',
+                        value: '',
+                      },
+                    ],
+                  });
+                }}
+              />
+            </>
+          </div>
+        ))
         : ''}
     </div>
   );

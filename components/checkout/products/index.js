@@ -5,11 +5,11 @@ export default function Products({ cart }) {
   return (
     <div className={styles.products}>
       <div className={styles.products__header}>
-        <h1>Cart</h1>
+        <h1>Keranjang</h1>
         <span>
           {cart.products.length == 1
-            ? '1 item'
-            : `${cart.products.length} items`}
+            ? '1 barang'
+            : `${cart.products.length} barang`}
         </span>
       </div>
       <div className={styles.products__wrap}>
@@ -29,13 +29,13 @@ export default function Products({ cart }) {
                 : product.name}
             </div>
             <div className={styles.product__price}>
-              {(product.price * product.qty).toFixed(2)}$
+              Rp. {(product.price * product.qty).toFixed(2)}
             </div>
           </div>
         ))}
       </div>
       <div className={styles.products__total}>
-        Subtotal : <b>{cart.cartTotal}$</b>
+        Subtotal : <b>Rp. {cart.cartTotal}</b>
       </div>
     </div>
   );

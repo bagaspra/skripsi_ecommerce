@@ -125,7 +125,7 @@ export default function Infos({ product, setActiveImg }) {
             style={{ color: '#FACF19' }}
           />
           ({product.numReviews}
-          {product.numReviews == 1 ? ' review' : ' reviews'})
+          {product.numReviews == 1 ? ' ulasan' : ' ulasan'})
         </div>
         <div className={styles.infos__price}>
           {!size ? <h2>{product.priceRange}</h2> : <h1>{product.price}$</h1>}
@@ -140,7 +140,7 @@ export default function Infos({ product, setActiveImg }) {
         </div>
         <span className={styles.infos__shipping}>
           {product.shipping
-            ? `Rp. ${product.shipping}$ Biaya Pengiriman`
+            ? `Rp. ${product.shipping} Biaya Pengiriman`
             : 'Gratis Pengiriman'}
         </span>
         <span>

@@ -17,7 +17,7 @@ export default function CartHeader({ cartItems, selected, setSelected }) {
 
   return (
     <div className={`${styles.cart__header} ${styles.card}`}>
-      <h1>Item Summary({cartItems.length})</h1>
+      <h1>Ringkasan barang({cartItems.length})</h1>
       <div className={styles.flex} onClick={() => handleSelect()}>
         <div
           className={`${styles.checkbox} ${active ? styles.active : ''}`}

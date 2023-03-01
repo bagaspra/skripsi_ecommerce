@@ -17,7 +17,7 @@ export default function dashboard({ users, orders, products }) {
   return (
     <div>
       <Head>
-        <title>Shoppay - Admin Dashboard</title>
+        <title>Admin Dashboard</title>
       </Head>
       <Layout>
         <div className={styles.header}>
@@ -104,15 +104,15 @@ export default function dashboard({ users, orders, products }) {
                     </td>
                     <td>
                       <div
-                        className={`${styles.status} ${order.status == 'Not Processed'
+                        className={`${styles.status} ${order.status == 'Belum Diproses'
                           ? styles.not_processed
-                          : order.status == 'Processing'
+                          : order.status == 'Diproses'
                             ? styles.processing
-                            : order.status == 'Dispatched'
+                            : order.status == 'Dikirim'
                               ? styles.dispatched
-                              : order.status == 'Cancelled'
+                              : order.status == 'Dibatalkan'
                                 ? styles.cancelled
-                                : order.status == 'Completed'
+                                : order.status == 'Selesai'
                                   ? styles.completed
                                   : ''
                           }`}

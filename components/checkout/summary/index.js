@@ -56,7 +56,7 @@ export default function Summary({
   return (
     <div className={styles.summary}>
       <div className={styles.header}>
-        <h3>Order Summary</h3>
+        <h3>Ringkasan Pesanan</h3>
       </div>
       <div className={styles.coupon}>
         <Formik
@@ -71,12 +71,12 @@ export default function Summary({
             <Form>
               <ShippingInput
                 name="coupon"
-                placeholder="*Coupon"
+                placeholder="*Kupon"
                 onChange={(e) => setCoupon(e.target.value)}
               />
               {error && <span className={styles.error}>{error}</span>}
               <button className={styles.apply_btn} type="submit">
-                Apply
+                Terapkan
               </button>
               <div className={styles.infos}>
                 <span>
@@ -84,13 +84,13 @@ export default function Summary({
                 </span>
                 {discount > 0 && (
                   <span className={styles.coupon_span}>
-                    Coupon applied : <b>-{discount}%</b>
+                    Kupon diterapkan : <b>-{discount}%</b>
                   </span>
                 )}
                 {totalAfterDiscount < cart.cartTotal &&
                   totalAfterDiscount != '' && (
                     <span>
-                      New price : <b>{totalAfterDiscount}$</b>
+                      Total Akhir : <b>Rp. {totalAfterDiscount}</b>
                     </span>
                   )}
               </div>
@@ -99,7 +99,7 @@ export default function Summary({
         </Formik>
       </div>
       <button className={styles.submit_btn} onClick={() => placeOrderHandler()}>
-        Place Order
+        Bayar
       </button>
       {order_error && <span className={styles.error}>{order_error}</span>}
     </div>

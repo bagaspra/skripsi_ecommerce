@@ -100,7 +100,7 @@ export default function order({
                 {orderData._id}
               </div>
               <div className={styles.order__header_status}>
-                Payment Status :{' '}
+                Status Pembayaran :{' '}
                 {orderData.isPaid ? (
                   <img src="../../../images/verified.png" alt="paid" />
                 ) : (
@@ -108,20 +108,20 @@ export default function order({
                 )}
               </div>
               <div className={styles.order__header_status}>
-                Order Status :
+                Status Pesanan :
                 <span
                   className={
-                    orderData.status == 'Not Processed'
+                    orderData.status == 'Belum Diproses'
                       ? styles.not_processed
-                      : orderData.status == 'Processing'
-                      ? styles.processing
-                      : orderData.status == 'Dispatched'
-                      ? styles.dispatched
-                      : orderData.status == 'Cancelled'
-                      ? styles.cancelled
-                      : orderData.status == 'Completed'
-                      ? styles.completed
-                      : ''
+                      : orderData.status == 'Diproses'
+                        ? styles.processing
+                        : orderData.status == 'Dikirim'
+                          ? styles.dispatched
+                          : orderData.status == 'Dibatalkan'
+                            ? styles.cancelled
+                            : orderData.status == 'Selesai'
+                              ? styles.completed
+                              : ''
                   }
                 >
                   {orderData.status}
@@ -144,10 +144,10 @@ export default function order({
                       <img src={product.color.image} alt="" /> / {product.size}
                     </div>
                     <div className={styles.product__infos_priceQty}>
-                      {product.price}$ x {product.qty}
+                      Rp. {product.price} x {product.qty}
                     </div>
                     <div className={styles.product__infos_total}>
-                      {product.price * product.qty}$
+                      Rp. {product.price * product.qty}
                     </div>
                   </div>
                 </div>
@@ -157,42 +157,41 @@ export default function order({
                   <>
                     <div className={styles.order__products_total_sub}>
                       <span>Subtotal</span>
-                      <span>{orderData.totalBeforeDiscount}$</span>
+                      <span>Rp. {orderData.totalBeforeDiscount}</span>
                     </div>
                     <div className={styles.order__products_total_sub}>
                       <span>
-                        Coupon Applied <em>({orderData.couponApplied})</em>{' '}
+                        Kupon Diterapkan <em>({orderData.couponApplied})</em>{' '}
                       </span>
                       <span>
-                        -
+                        Rp. -
                         {(
                           orderData.totalBeforeDiscount - orderData.total
                         ).toFixed(2)}
-                        $
                       </span>
                     </div>
                     <div className={styles.order__products_total_sub}>
-                      <span>Tax price</span>
-                      <span>+{orderData.taxPrice}$</span>
+                      <span>Pajak</span>
+                      <span>Rp. +{orderData.taxPrice}</span>
                     </div>
                     <div
                       className={`${styles.order__products_total_sub} ${styles.bordertop}`}
                     >
-                      <span>TOTAL TO PAY</span>
-                      <b>{orderData.total}$</b>
+                      <span>TOTAL PEMBAYARAN</span>
+                      <b>Rp. {orderData.total}</b>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className={styles.order__products_total_sub}>
-                      <span>Tax price</span>
-                      <span>+{orderData.taxPrice}$</span>
+                      <span>Pajak</span>
+                      <span>Rp. +{orderData.taxPrice}</span>
                     </div>
                     <div
                       className={`${styles.order__products_total_sub} ${styles.bordertop}`}
                     >
-                      <span>TOTAL TO PAY</span>
-                      <b>{orderData.total}$</b>
+                      <span>TOTAL PEMBAYARAN</span>
+                      <b>Rp. {orderData.total}</b>
                     </div>
                   </>
                 )}
@@ -201,7 +200,7 @@ export default function order({
           </div>
           <div className={styles.order__actions}>
             <div className={styles.order__address}>
-              <h1>Customer's Order</h1>
+              <h1>Pesanan Pembeli</h1>
               <div className={styles.order__address_user}>
                 <div className={styles.order__address_user_infos}>
                   <img src={orderData.user.image} alt="" />
@@ -212,7 +211,7 @@ export default function order({
                 </div>
               </div>
               <div className={styles.order__address_shipping}>
-                <h2>Shipping Address</h2>
+                <h2>Alamat Pengiriman</h2>
                 <span>
                   {orderData.shippingAddress.firstName}{' '}
                   {orderData.shippingAddress.lastName}
@@ -227,7 +226,7 @@ export default function order({
                 <span>{orderData.shippingAddress.country}</span>
               </div>
               <div className={styles.order__address_shipping}>
-                <h2>Billing Address</h2>
+                <h2>Alamat Pembayaran</h2>
                 <span>
                   {orderData.shippingAddress.firstName}{' '}
                   {orderData.shippingAddress.lastName}

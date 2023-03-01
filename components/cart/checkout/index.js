@@ -9,18 +9,18 @@ export default function Checkout({
 }) {
   return (
     <div className={`${styles.cart__checkout} ${styles.card}`}>
-      <h2>Order Summary</h2>
+      <h2>Ringkasan Pesanan</h2>
       <div className={styles.cart__checkout_line}>
         <span>Subtotal</span>
-        <span>US${subtotal}</span>
+        <span>Rp. {subtotal}</span>
       </div>
       <div className={styles.cart__checkout_line}>
-        <span>Shipping</span>
-        <span>+{shippingFee}$</span>
+        <span>Pengiriman</span>
+        <span>Rp. +{shippingFee}</span>
       </div>
       <div className={styles.cart__checkout_total}>
         <span>Total</span>
-        <span>US{total}$</span>
+        <span>Rp. {total}</span>
       </div>
       <div className={styles.submit}>
         <button
@@ -31,7 +31,7 @@ export default function Checkout({
           }}
           onClick={() => saveCartToDbHandler()}
         >
-          Continue
+          Lanjutkan
         </button>
       </div>
     </div>

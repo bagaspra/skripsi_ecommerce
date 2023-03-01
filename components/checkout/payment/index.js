@@ -6,7 +6,7 @@ export default function Payment({ paymentMethod, setPaymentMethod, profile }) {
     <div className={styles.payment}>
       {!profile && (
         <div className={styles.header}>
-          <h3>Payment Method</h3>
+          <h3>Metode Pembayaran</h3>
         </div>
       )}
       {paymentMethods.map((pm) => (
@@ -25,12 +25,12 @@ export default function Payment({ paymentMethod, setPaymentMethod, profile }) {
           />
           <img src={`../../../images/checkout/${pm.id}.webp`} alt={pm.name} />
           <div className={styles.payment__item_col}>
-            <span>Pay with {pm.name}</span>
+            <span>Bayar dengan {pm.name}</span>
             <p>
               {pm.images.length > 0
                 ? pm.images.map((img) => (
-                    <img src={`../../../images/payment/${img}.webp`} alt="" />
-                  ))
+                  <img src={`../../../images/payment/${img}.webp`} alt="" />
+                ))
                 : pm.description}
             </p>
           </div>

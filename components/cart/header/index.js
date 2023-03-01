@@ -13,7 +13,7 @@ export default function Header() {
         <div className={styles.header__right}>
           <Link legacyBehavior href="/browse">
             <a>
-              Continue Shopping
+              Lanjutkan Belanja
               <MdPlayArrow />
             </a>
           </Link>

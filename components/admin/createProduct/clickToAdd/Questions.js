@@ -16,7 +16,6 @@ export default function Questions({ questions, product, setProduct }) {
       setProduct({ ...product, questions: values });
     }
   };
-  console.log('product questions', product.questions);
   return (
     <div>
       <div className={styles.header}>Questions</div>
@@ -39,41 +38,41 @@ export default function Questions({ questions, product, setProduct }) {
       )}
       {questions
         ? questions.map((q, i) => (
-            <div className={styles.clicktoadd} key={i}>
-              <input
-                type="text"
-                name="question"
-                placeholder="Question"
-                value={q.question}
-                onChange={(e) => handleQuestion(i, e)}
-              />
-              <input
-                type="text"
-                name="answer"
-                placeholder="Answer"
-                value={q.answer}
-                onChange={(e) => handleQuestion(i, e)}
-              />
+          <div className={styles.clicktoadd} key={i}>
+            <input
+              type="text"
+              name="question"
+              placeholder="Question"
+              value={q.question}
+              onChange={(e) => handleQuestion(i, e)}
+            />
+            <input
+              type="text"
+              name="answer"
+              placeholder="Answer"
+              value={q.answer}
+              onChange={(e) => handleQuestion(i, e)}
+            />
 
-              <>
-                <BsFillPatchMinusFill onClick={() => handleRemove(i)} />
-                <BsFillPatchPlusFill
-                  onClick={() => {
-                    setProduct({
-                      ...product,
-                      questions: [
-                        ...questions,
-                        {
-                          question: '',
-                          answer: '',
-                        },
-                      ],
-                    });
-                  }}
-                />
-              </>
-            </div>
-          ))
+            <>
+              <BsFillPatchMinusFill onClick={() => handleRemove(i)} />
+              <BsFillPatchPlusFill
+                onClick={() => {
+                  setProduct({
+                    ...product,
+                    questions: [
+                      ...questions,
+                      {
+                        question: '',
+                        answer: '',
+                      },
+                    ],
+                  });
+                }}
+              />
+            </>
+          </div>
+        ))
         : ''}
     </div>
   );

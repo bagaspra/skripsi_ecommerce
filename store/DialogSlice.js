@@ -1,9 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  show: false,
-  header: '',
-  msgs: [],
+  show: true,
+  header: 'Error creating Product',
+  msgs: [
+    {
+      msg: "choose atleast 2 images",
+      type: "error",
+    },
+    {
+      msg: "aaaaa",
+      type: "error"
+    }
+  ],
   link: {
     link: '',
     link_text: '',

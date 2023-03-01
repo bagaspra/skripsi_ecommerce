@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react';
 export default function Product({ product, selected, setSelected }) {
   const { cart } = useSelector((state) => ({ ...state }));
   const [active, setActive] = useState();
-  console.log(active);
   useEffect(() => {
     const check = selected.find((p) => p._uid == product._uid);
     setActive(check);
@@ -44,7 +43,7 @@ export default function Product({ product, selected, setSelected }) {
       {product.quantity < 1 && <div className={styles.blur}></div>}
       <div className={styles.product__header}>
         <img src="../../../images/store.webp" alt="" />
-        M74JJI Official Store
+        BagasPra Official Store
       </div>
       <div className={styles.product__image}>
         <div
@@ -72,17 +71,17 @@ export default function Product({ product, selected, setSelected }) {
           <div className={styles.product__style}>
             <img src={product.color.image} alt="" />
             {product.size && <span>{product.size}</span>}
-            {product.price && <span>{product.price.toFixed(2)}$</span>}
+            Rp. {product.price && <span>{product.price.toFixed(2)}</span>}
             <MdOutlineKeyboardArrowRight />
           </div>
           <div className={styles.product__priceQty}>
             <div className={styles.product__priceQty_price}>
               <span className={styles.price}>
-                USD{(product.price * product.qty).toFixed(2)}$
+                Rp. {(product.price * product.qty).toFixed(2)}
               </span>
               {product.price !== product.priceBefore && (
                 <span className={styles.priceBefore}>
-                  USD{product.priceBefore}$
+                  Rp. {product.priceBefore}
                 </span>
               )}
               {product.discount > 0 && (

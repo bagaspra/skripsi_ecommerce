@@ -38,8 +38,8 @@ function Row(props) {
           {row.paymentMethod == 'paypal'
             ? 'Paypal'
             : row.paymentMethod == 'credit_card'
-            ? 'Credit Card'
-            : 'Cash On Delievery'}
+              ? 'Credit Card'
+              : 'Cash On Delievery'}
         </TableCell>
         <TableCell align="right">
           {row.isPaid ? (
@@ -59,17 +59,17 @@ function Row(props) {
         <TableCell align="right">
           <span
             className={
-              row.status == 'Not Processed'
+              row.status == 'Belum Diproses'
                 ? styles.not_processed
-                : row.status == 'Processing'
-                ? styles.processing
-                : row.status == 'Dispatched'
-                ? styles.dispatched
-                : row.status == 'Cancelled'
-                ? styles.cancelled
-                : row.status == 'Completed'
-                ? styles.completed
-                : ''
+                : row.status == 'Diproses'
+                  ? styles.processing
+                  : row.status == 'Dikirim'
+                    ? styles.dispatched
+                    : row.status == 'Dibatalkan'
+                      ? styles.cancelled
+                      : row.status == 'Selesai'
+                        ? styles.completed
+                        : ''
             }
           >
             {row.status}
@@ -93,7 +93,7 @@ function Row(props) {
                     <TableCell></TableCell>
                     <TableCell>Full Name</TableCell>
                     <TableCell>Email</TableCell>
-                    <TableCell align="right">Shipping Informations</TableCell>
+                    <TableCell align="right">Informasi Pengiriman</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -217,7 +217,7 @@ export default function CollapsibleTable({ rows }) {
           <TableRow>
             <TableCell />
             <TableCell>Order</TableCell>
-            <TableCell align="right">Payment Method</TableCell>
+            <TableCell align="right">Metode Pembayaran</TableCell>
             <TableCell align="right">Paid</TableCell>
             <TableCell align="right">Status</TableCell>
             <TableCell align="right">Coupon</TableCell>

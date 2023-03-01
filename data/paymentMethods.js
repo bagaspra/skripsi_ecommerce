@@ -7,7 +7,7 @@ export const paymentMethods = [
   //   images: [],
   // },
   {
-    name: 'Credit Card',
+    name: 'Kartu Kredit',
     id: 'credit_card',
     description: '',
     images: [
@@ -24,7 +24,7 @@ export const paymentMethods = [
     name: 'Cash',
     id: 'cash',
     description:
-      "If you don't have a paypal account,you can also pay via paypal with your credit card or bank debit card. Payment can be submitted in any currency!",
+      "Bayar Langsung Tunai Setelah Barang Sampai Ke Rumah Anda!",
     images: [],
   },
 ];

@@ -24,7 +24,7 @@ export default function Images({
       if (images.length == 6) {
         dispatch(
           showDialog({
-            header: 'Maximu 6 images are allowed.',
+            header: 'Maximum 6 images are allowed.',
             msgs: [
               {
                 msg: `Maximum of total six images are allowed.`,
@@ -107,19 +107,18 @@ export default function Images({
       />
       <div className={styles.images__main}>
         <div
-          className={`${styles.images__main_grid} ${
-            images.length == 2
-              ? styles.grid__two
-              : images.length == 3
+          className={`${styles.images__main_grid} ${images.length == 2
+            ? styles.grid__two
+            : images.length == 3
               ? styles.grid__three
               : images.length == 4
-              ? styles.grid__foor
-              : images.length == 5
-              ? styles.grid__five
-              : images.length == 6
-              ? styles.grid__six
-              : ''
-          }`}
+                ? styles.grid__foor
+                : images.length == 5
+                  ? styles.grid__five
+                  : images.length == 6
+                    ? styles.grid__six
+                    : ''
+            }`}
         >
           {!images.length ? (
             <img src="../../../images/no_image.png" alt="" />

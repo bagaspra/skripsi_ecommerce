@@ -98,7 +98,7 @@ export default function Shipping({ user, addresses, setAddresses, profile }) {
     <div className={styles.shipping}>
       {!profile && (
         <div className={styles.header}>
-          <h3>Shipping Informations</h3>
+          <h3>Informasi Pengiriman</h3>
         </div>
       )}
       <div className={styles.addresses}>
@@ -159,7 +159,7 @@ export default function Shipping({ user, addresses, setAddresses, profile }) {
           </span>
         ) : (
           <span>
-            ADD NEW ADDRESS <AiOutlinePlus />
+            Tambahkan Alamat Baru <AiOutlinePlus />
           </span>
         )}
       </button>

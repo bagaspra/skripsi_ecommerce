@@ -66,14 +66,6 @@ export default function Sidebar() {
               </a>
             </Link>
           </li>
-          <li className={route == 'sales' ? styles.active : ''}>
-            <Link href="/admin/dashboard/sales" legacyBehavior>
-              <a>
-                <FcSalesPerformance />
-                <span className={styles.show}>Sales</span>
-              </a>
-            </Link>
-          </li>
           <li className={route == 'orders' ? styles.active : ''}>
             <Link href="/admin/dashboard/orders" legacyBehavior>
               <a>
@@ -87,14 +79,6 @@ export default function Sidebar() {
               <a>
                 <ImUsers />
                 <span className={styles.show}>Users</span>
-              </a>
-            </Link>
-          </li>
-          <li className={route == 'messages' ? styles.active : ''}>
-            <Link href="/admin/dashboard/messages" legacyBehavior>
-              <a>
-                <AiFillMessage />
-                <span className={styles.show}>Messages</span>
               </a>
             </Link>
           </li>
@@ -164,9 +148,8 @@ export default function Sidebar() {
         </div>
         <nav>
           <ul
-            className={`${styles.sidebar__list} ${
-              expand ? styles.nav_flex : ''
-            }`}
+            className={`${styles.sidebar__list} ${expand ? styles.nav_flex : ''
+              }`}
           >
             <li>
               <Link href="" legacyBehavior>
