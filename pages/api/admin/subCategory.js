@@ -1,7 +1,6 @@
 import nc from "next-connect";
 import auth from "../../../middleware/auth";
 import admin from "../../../middleware/admin";
-import Category from "../../../models/Category";
 import SubCategory from "../../../models/SubCategory";
 import db from "../../../utils/database";
 import slugify from "slugify";
