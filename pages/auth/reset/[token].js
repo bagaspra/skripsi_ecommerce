@@ -60,7 +60,7 @@ export default function reset({ user_id }) {
             </div>
             <span>
               Reset your password ?{' '}
-              <Link legacyBehavior href="/">
+              <Link href="/">
                 Login instead
               </Link>
             </span>

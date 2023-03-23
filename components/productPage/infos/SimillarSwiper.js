@@ -27,7 +27,7 @@ export default function SimillarSwiper() {
     >
       {simillar_products.map((p) => (
         <SwiperSlide>
-          <Link legacyBehavior href="">
+          <Link href="/">
             <img src={p} alt="" />
           </Link>
         </SwiperSlide>

@@ -49,17 +49,17 @@ export default function User() {
             </Link>
           </li>
           <li>
-            <Link legacyBehavior href="">
+            <Link legacyBehavior href="/">
               <HiOutlineClipboardList />
             </Link>
           </li>
           <li>
-            <Link legacyBehavior href="">
+            <Link legacyBehavior href="/">
               <AiOutlineMessage />
             </Link>
           </li>
           <li>
-            <Link legacyBehavior href="">
+            <Link legacyBehavior href="/">
               <BsHeart />
             </Link>
           </li>
@@ -84,8 +84,8 @@ export default function User() {
           >
             {userSwiperArray.map((item) => (
               <SwiperSlide>
-                <Link legacyBehavior href="">
-                  <img src={item.image} alt="" />
+                <Link legacyBehavior href="/">
+                  <img src={item.image} alt="image" />
                 </Link>
               </SwiperSlide>
             ))}

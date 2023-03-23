@@ -66,7 +66,7 @@ export default function ProductCard({ product, setProduct }) {
                 <Link href={`/product/${product.slug}?style=${i}`}>
                   <AiOutlineEye />
                 </Link>
-                <Link href="">
+                <Link href="/">
                   <RiDeleteBin2Line onClick={() => handleRemove(product._id)} />
                 </Link>
               </div>

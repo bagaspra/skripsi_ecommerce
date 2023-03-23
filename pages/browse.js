@@ -205,7 +205,7 @@ export default function Browse({
           <div className={styles.browse__path}>Home / Browse</div>
           <div className={styles.browse__tags}>
             {categories.map((c) => (
-              <Link href="" key={c._id} legacyBehavior>
+              <Link href="/" key={c._id} legacyBehavior>
                 <a>{c.name}</a>
               </Link>
             ))}

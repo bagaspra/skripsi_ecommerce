@@ -104,26 +104,26 @@ export default function PriceSort() {
             onMouseLeave={() => setShow(false)}
           >
             <li>
-              <Link href="">
+              <Link href="/">
                 <b>
                   Recommend <BsCheckLg />
                 </b>
               </Link>
             </li>
             <li>
-              <Link href="">Most Popular</Link>
+              <Link href="/">Most Popular</Link>
             </li>
             <li>
-              <Link href="">New Arrivals</Link>
+              <Link href="/">New Arrivals</Link>
             </li>
             <li>
-              <Link href="">Top Reviewed</Link>
+              <Link href="/">Top Reviewed</Link>
             </li>
             <li>
-              <Link href="">Price (low to high)</Link>
+              <Link href="/">Price (low to high)</Link>
             </li>
             <li>
-              <Link href="">Price (high to low)</Link>
+              <Link href="/">Price (high to low)</Link>
             </li>
           </ul>
         </div>

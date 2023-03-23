@@ -152,28 +152,28 @@ export default function Sidebar() {
               }`}
           >
             <li>
-              <Link href="" legacyBehavior>
+              <Link href="/" legacyBehavior>
                 <a>
                   <RiSettingsLine />
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="" legacyBehavior>
+              <Link href="/" legacyBehavior>
                 <a>
                   <IoNotificationsSharp />
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="" legacyBehavior>
+              <Link href="/" legacyBehavior>
                 <a>
                   <AiFillMessage />
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="" legacyBehavior>
+              <Link href="/" legacyBehavior>
                 <a>
                   <RiLogoutCircleFill />
                 </a>

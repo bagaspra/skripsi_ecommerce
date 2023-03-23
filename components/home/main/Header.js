@@ -6,17 +6,17 @@ export default function Header() {
     <div className={styles.header}>
       <ul>
         <li>
-          <Link legacyBehavior href="">
+          <Link href="/">
             Produk
           </Link>
         </li>
         <li>
-          <Link legacyBehavior href="">
+          <Link href="/">
             Laptop
           </Link>
         </li>
         <li>
-          <Link legacyBehavior href="">
+          <Link href="/">
             Komputer
           </Link>
         </li>

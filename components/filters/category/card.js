@@ -48,7 +48,7 @@ export default function Card({ category, subCategories }) {
                 }}
               >
                 <input type="radio" name="filter" />
-                <Link href="">
+                <Link href="/">
                   <a>{s.name}</a>
                 </Link>
               </li>

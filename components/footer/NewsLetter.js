@@ -46,7 +46,7 @@ export default function NewsLetter() {
       {success && <div className="success">{success}</div>}
       <p>
         Dengan mengklik tombol BERLANGGANAN, Anda setuju untuk{' '}
-        <Link legacyBehavior href="">
+        <Link href="/">
           Kebijakan Privasi & Cookie kami
         </Link>
       </p>
