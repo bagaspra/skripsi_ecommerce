@@ -2,7 +2,7 @@ import styles from "../filters.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { BsCheckLg } from "react-icons/bs";
 import { AiTwotoneStar, AiOutlineStar } from "react-icons/ai";
-import Link from "next/link";
+import Link from "next/Link";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { useState } from "react";
 export default function PriceSort() {

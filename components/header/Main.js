@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/Link';
 import styles from './styles.module.scss';
 import { RiSearch2Line } from 'react-icons/ri';
 import { FaOpencart } from 'react-icons/fa';

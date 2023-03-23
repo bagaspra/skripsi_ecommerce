@@ -1,6 +1,6 @@
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import Link from "next/link";
+import Link from "next/Link";
 import { useRouter } from "next/router";
 import Layout from "../../components/profile/layout";
 import { ordersLinks } from "../../data/profile";

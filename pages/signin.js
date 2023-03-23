@@ -2,7 +2,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import styles from '../styles/signin.module.scss';
 import { BiLeftArrowAlt } from 'react-icons/bi';
-import Link from 'next/link';
+import Link from 'next/Link';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import LoginInput from '../components/inputs/loginInput';

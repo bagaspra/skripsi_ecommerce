@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
+import Link from 'next/Link';
 import styles from './styles.module.scss';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { HiOutlineClipboardList } from 'react-icons/hi';

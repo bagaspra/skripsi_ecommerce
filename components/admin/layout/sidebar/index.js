@@ -20,7 +20,7 @@ import {
 } from 'react-icons/ri';
 //-----------------------
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
+import Link from 'next/Link';
 import { useRouter } from 'next/router';
 export default function Sidebar() {
   const router = useRouter();

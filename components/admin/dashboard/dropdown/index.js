@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import Link from 'next/link';
+import Link from 'next/Link';
 //-----------------------
 import {
   MdArrowForwardIos,

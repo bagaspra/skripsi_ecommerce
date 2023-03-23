@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import Link from 'next/link';
+import Link from 'next/Link';
 import { IoNotificationsSharp } from 'react-icons/io5';
 import { notificationsData } from '../../../../data/notifications';
 //-----------------------
-export default function Notifications({}) {
+export default function Notifications({ }) {
   const [show, setShow] = useState(false);
   return (
     <div
@@ -16,9 +16,8 @@ export default function Notifications({}) {
         <IoNotificationsSharp />
       </div>
       <div
-        className={`${styles.dropdown__content} ${show ? styles.active : ''} ${
-          styles.scrollbar
-        }`}
+        className={`${styles.dropdown__content} ${show ? styles.active : ''} ${styles.scrollbar
+          }`}
       >
         <div className={styles.dropdown__content_notifications}>
           {notificationsData.map((n, i) => (

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import ProductSwiper from './ProductSwiper';

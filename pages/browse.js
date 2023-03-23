@@ -9,7 +9,7 @@ import {
   randomize,
   removeDuplicates,
 } from "../utils/arrays_utils";
-import Link from "next/link";
+import Link from "next/Link";
 import ProductCard from "../components/ProductCard";
 import CategoryFilter from "../components/browse/categoryFilter";
 import SizesFilter from "../components/browse/sizesFilter";

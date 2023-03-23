@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import { MdSecurity } from 'react-icons/md';
 import { BsSuitHeart } from 'react-icons/bs';
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from 'react-icons/ri';
-import Link from 'next/link';
+import Link from 'next/Link';
 import { useState } from 'react';
 import UserMenu from './UserMenu';
 import { useSession } from 'next-auth/react';

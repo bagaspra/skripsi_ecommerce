@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/Link';
 import { useState } from 'react';
 import styles from './styles.module.scss';
 import axios from 'axios';
