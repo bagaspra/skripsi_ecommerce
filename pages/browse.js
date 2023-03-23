@@ -9,8 +9,7 @@ import {
   randomize,
   removeDuplicates,
 } from "../utils/arrays_utils";
-import Link from "next/Link";
-import ProductCard from "../components/ProductCard";
+import Link from "next/link";
 import CategoryFilter from "../components/browse/categoryFilter";
 import SizesFilter from "../components/browse/sizesFilter";
 import ColorsFilter from "../components/browse/colorsFilter";
@@ -24,6 +23,7 @@ import { useRouter } from "next/router";
 import { Pagination } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import ProductCard from "@/components/productCard";
 export default function Browse({
   categories,
   subCategories,

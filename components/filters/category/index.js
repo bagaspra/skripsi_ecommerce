@@ -1,7 +1,6 @@
 import styles from "../filters.module.scss";
 import { FaMinus } from "react-icons/fa";
 import { BsPlusLg } from "react-icons/bs";
-import Link from "next/Link";
 import { useState } from "react";
 import Card from "./card";
 export default function CategoryFilter({ categories, subCategories }) {

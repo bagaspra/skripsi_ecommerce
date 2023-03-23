@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "../filters.module.scss";
 import { FaMinus } from "react-icons/fa";
 import { BsPlusLg } from "react-icons/bs";
-import Link from "next/Link";
 export default function Patterns({ patterns }) {
   const [show, setShow] = useState(true);
   return (

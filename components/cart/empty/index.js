@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 import { useSession, signIn } from 'next-auth/react';
-import Link from 'next/Link';
+import Link from 'next/link';
 export default function Empty() {
   const { data: session } = useSession();
   return (

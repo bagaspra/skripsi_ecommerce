@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 import { menuArray } from '../../../data/home';
-import Link from 'next/Link';
+import Link from 'next/link';
 //-------
 import { FaMemory } from 'react-icons/fa';
 import { GiCarDoor, GiProcessor } from 'react-icons/gi';

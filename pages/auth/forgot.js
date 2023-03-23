@@ -7,7 +7,7 @@ import LoginInput from '../../components/inputs/loginInput';
 import { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import Link from 'next/Link';
+import Link from 'next/link';
 import DotLoaderSpinner from '../../components/loaders/dotLoader';
 import axios from 'axios';
 import { signOut, signIn } from 'next-auth/react';
@@ -52,7 +52,7 @@ export default function forgot() {
             </div>
             <span>
               Forgot your password ?
-              <Link legacyBehavior href="/" onClick={() => signIn()}>
+              <Link href="/" onClick={() => signIn()}>
                 Login instead
               </Link>
             </span>

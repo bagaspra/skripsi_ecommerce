@@ -7,7 +7,7 @@ import LoginInput from '../../../components/inputs/loginInput';
 import { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import Link from 'next/Link';
+import Link from 'next/link';
 import DotLoaderSpinner from '../../../components/loaders/dotLoader';
 import axios from 'axios';
 import { getSession, signIn } from 'next-auth/react';

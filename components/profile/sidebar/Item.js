@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./styles.module.scss";
 import { signOut } from "next-auth/react";
-import Link from "next/Link";
+import Link from "next/link";
 import { HiMinusSm, HiPlusSm } from "react-icons/hi";
 import slugify from "slugify";
 import { useRouter } from "next/router";

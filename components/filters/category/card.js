@@ -1,5 +1,5 @@
-import Link from "next/Link";
 import React, { useState } from "react";
+import Link from "next/link";
 import { FaMinus } from "react-icons/fa";
 import { BsPlusLg } from "react-icons/bs";
 import { useRouter } from "next/router";

@@ -10,7 +10,7 @@ import { ImUsers } from 'react-icons/im';
 import { AiFillMessage } from 'react-icons/ai';
 import { BsPatchPlus } from 'react-icons/bs';
 import { RiCoupon3Fill, RiSettingsLine } from 'react-icons/ri';
-import Link from 'next/Link';
+import Link from 'next/link';
 const index = ({ userImage }) => {
   const [show, setShow] = useState(false);
 

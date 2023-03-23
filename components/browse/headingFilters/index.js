@@ -4,7 +4,6 @@ import { AiTwotoneStar } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
 import { BsCheckLg } from "react-icons/bs";
 import { useState } from "react";
-import Link from "next/Link";
 import { useRouter } from "next/router";
 export default function HeadingFilters({
   priceHandler,

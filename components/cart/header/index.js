@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { MdPlayArrow } from 'react-icons/md';
 export default function Header() {
   return (

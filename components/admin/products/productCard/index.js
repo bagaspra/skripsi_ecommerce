@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { TbEdit } from 'react-icons/tb';
 import { AiOutlineEye } from 'react-icons/ai';
 import { RiDeleteBin2Line } from 'react-icons/ri';

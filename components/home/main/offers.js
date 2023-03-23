@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination, Navigation } from 'swiper';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 export default function Offers() {
   return (

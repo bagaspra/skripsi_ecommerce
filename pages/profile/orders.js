@@ -1,6 +1,6 @@
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import Link from "next/Link";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import Layout from "../../components/profile/layout";
 import { ordersLinks } from "../../data/profile";
@@ -31,7 +31,7 @@ export default function orders({ user, tab, orders }) {
                     : ""
                 }
               >
-                <Link legacyBehavior
+                <Link
                   href={`/profile/orders?tab=${tab}&q=${slugify(link.name, {
                     lower: true,
                   })}__${link.filter}`}
@@ -80,7 +80,7 @@ export default function orders({ user, tab, orders }) {
                 </td>
                 <td>{order.status}</td>
                 <td>
-                  <Link href={`/order/${order._id}`} legacyBehavior>
+                  <Link href={`/order/${order._id}`}>
                     <FiExternalLink />
                   </Link>
                 </td>
