@@ -3,7 +3,6 @@ import db from "../utils/database";
 import Product from "../models/Product";
 import Category from "../models/Category";
 import Header from "../components/header";
-import SubCategory from "../models/SubCategory";
 import {
   filterArray,
   randomize,
@@ -24,6 +23,7 @@ import { Pagination } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import ProductCard from "@/components/productCard";
+import SubCategory from "@/models/SubCategory";
 export default function Browse({
   categories,
   subCategories,

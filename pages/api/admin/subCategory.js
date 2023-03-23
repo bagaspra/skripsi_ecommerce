@@ -1,9 +1,9 @@
 import nc from "next-connect";
 import auth from "../../../middleware/auth";
 import admin from "../../../middleware/admin";
-import SubCategory from "../../../models/SubCategory";
 import db from "../../../utils/database";
 import slugify from "slugify";
+import SubCategory from "@/models/SubCategory";
 const handler = nc().use(auth).use(admin);
 
 handler.post(async (req, res) => {
