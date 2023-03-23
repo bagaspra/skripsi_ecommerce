@@ -60,4 +60,19 @@ handler.post(async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+handler.delete(async (req, res) => {
+    try {
+        const { id } = req.body;
+        db.connectDb();
+        await Product.findByIdAndRemove(id);
+        db.disconnectDb();
+        return res.json({
+            message: "Product has been deleted successfuly",
+            product: await Product.find({}).sort({ updatedAt: -1 }),
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 export default handler;

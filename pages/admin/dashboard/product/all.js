@@ -4,12 +4,14 @@ import db from '../../../../utils/database';
 import Product from '../../../../models/Product';
 import Category from '../../../../models/Category';
 import ProductCard from '../../../../components/admin/products/productCard';
+import { useState } from 'react';
 export default function all({ products }) {
+  const [data, setData] = useState(products);
   return (
     <Layout>
       <div className={styles.header}>All Products</div>
-      {products.map((product) => (
-        <ProductCard product={product} key={product._id} />
+      {data.map((data) => (
+        <ProductCard product={data} key={data._id} setProduct={setData} />
       ))}
     </Layout>
   );

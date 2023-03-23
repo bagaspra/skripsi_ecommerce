@@ -24,7 +24,7 @@ export default function product({ product, related }) {
       <div className={styles.product}>
         <div className={styles.product__container}>
           <div className={styles.path}>
-            Home / {product.category.name}
+            Home / {product.category?.name}
             {product.subCategories.map((sub) => (
               <span>/{sub.name}</span>
             ))}
@@ -119,7 +119,7 @@ export async function getServerSideProps(context) {
           array.findIndex((el2) => el2.size === element.size) === index
       ),
   };
-  const related = await Product.find({ category: product.category._id }).lean();
+  const related = await Product.find({ category: product?.category?._id }).lean();
   //------------
   function calculatePercentage(num) {
     return (

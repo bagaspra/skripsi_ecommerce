@@ -7,11 +7,27 @@ import Link from 'next/link';
 import { TbEdit } from 'react-icons/tb';
 import { AiOutlineEye } from 'react-icons/ai';
 import { RiDeleteBin2Line } from 'react-icons/ri';
-export default function ProductCard({ product }) {
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import { useState } from 'react';
+export default function ProductCard({ product, setProduct }) {
+  const handleRemove = async (id) => {
+    try {
+      const { data } = await axios.delete('/api/admin/product', {
+        data: { id },
+      });
+      setProduct(data.product);
+      toast.success(data.message);
+    } catch (error) {
+      // toast.error(error.response.data.message);
+      console.log(error)
+    }
+  };
+
   return (
     <div className={styles.product}>
       <h1 className={styles.product__name}>{product.name}</h1>
-      <h2 className={styles.product__category}>#{product.category.name}</h2>
+      <h2 className={styles.product__category}>#{product?.category?.name}</h2>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -51,7 +67,7 @@ export default function ProductCard({ product }) {
                   <AiOutlineEye />
                 </Link>
                 <Link href="">
-                  <RiDeleteBin2Line />
+                  <RiDeleteBin2Line onClick={() => handleRemove(product._id)} />
                 </Link>
               </div>
             </div>
