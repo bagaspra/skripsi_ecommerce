@@ -1,12 +1,12 @@
 import Layout from '../../../components/admin/layout';
 import db from '../../../utils/database';
 import User from '../../../models/User';
-import EnhancedTable from '../../../components/admin/users/table';
+import BasicTable from '../../../components/admin/users/table';
 
 export default function users({ users }) {
   return (
     <Layout>
-      <EnhancedTable rows={users} />
+      <BasicTable rows={users} />
     </Layout>
   );
 }

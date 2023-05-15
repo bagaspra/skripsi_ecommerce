@@ -23,7 +23,7 @@ import { Pagination } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import ProductCard from "@/components/productCard";
-import SubCategory from "@/models/SubCategory";
+import SubCategory from "../models/SubCategory";
 export default function Browse({
   categories,
   subCategories,

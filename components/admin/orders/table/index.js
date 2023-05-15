@@ -14,10 +14,31 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import styles from './styles.module.scss';
+import { useRef } from 'react';
+import { useState } from 'react';
+import { AiTwotoneEdit } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
+  const [status, setStatus] = React.useState('');
+  const input = useRef(null);
+
+  const handleUpdate = async (id) => {
+    try {
+      const { data } = await axios.put('/api/admin/order', {
+        id,
+        status,
+      });
+      setOrders(data.orders);
+      setOpen(false);
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response?.data?.message);
+    }
+  };
 
   return (
     <React.Fragment>
@@ -72,26 +93,76 @@ function Row(props) {
                         : ''
             }
           >
-            {row.status}
+            <li className={styles.list__item}>
+              <select
+                className={open ? styles.open : ''}
+                value={status ? status : row.status}
+                onChange={(e) => setStatus(e.target.value)}
+                disabled={!open}
+                ref={input}
+              >
+                <option value="Belum Diproses">Belum Diproses</option>
+                <option value="Diproses">Diproses</option>
+                <option value="Dikirim">Dikirim</option>
+                <option value="Dibatalkan">Dibatalkan</option>
+                <option value="Selesai">Selesai</option>
+              </select>
+              {open && (
+                <div className={styles.list__item_expand}>
+                  <button
+                    className={styles.btn}
+                    onClick={(e) => {
+                      handleUpdate(row._id);
+                      setOpen(false);
+                      window.location.reload(); // Reload halaman setelah perubahan berhasil disimpan
+                    }}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className={styles.btn}
+                    onClick={() => {
+                      setOpen(false);
+                      setStatus('');
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
+
+              <div className={styles.list__item_actions}>
+                {!open && (
+                  <AiTwotoneEdit
+                    onClick={() => {
+                      setOpen((prev) => !prev);
+                      input.current.focus();
+                    }}
+                  />
+                )}
+              </div>
+            </li>
           </span>
         </TableCell>
+
         <TableCell align="right">{row.couponApplied || '-'}</TableCell>
         <TableCell align="right">
-          <b>{row.total}$</b>
+          <b>Rp. {row.total}</b>
         </TableCell>
+
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                Order for
+                Order untuk
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
                     <TableCell></TableCell>
-                    <TableCell>Full Name</TableCell>
+                    <TableCell>Nama Lengkap</TableCell>
                     <TableCell>Email</TableCell>
                     <TableCell align="right">Informasi Pengiriman</TableCell>
                   </TableRow>
@@ -136,10 +207,10 @@ function Row(props) {
                 <TableHead>
                   <TableRow>
                     <TableCell></TableCell>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Size</TableCell>
-                    <TableCell>Qty</TableCell>
-                    <TableCell>Price</TableCell>
+                    <TableCell>Nama</TableCell>
+                    <TableCell>Tipe</TableCell>
+                    <TableCell>Kuantitas</TableCell>
+                    <TableCell>Harga</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -155,7 +226,7 @@ function Row(props) {
                       <TableCell>{p.name}</TableCell>
                       <TableCell align="left">{p.size}</TableCell>
                       <TableCell align="left">x{p.qty}</TableCell>
-                      <TableCell align="left">{p.price}$</TableCell>
+                      <TableCell align="left">Rp. {p.price}</TableCell>
                     </TableRow>
                   ))}
                   <TableRow key={row._id}>
@@ -178,7 +249,7 @@ function Row(props) {
           </Collapse>
         </TableCell>
       </TableRow>
-    </React.Fragment>
+    </React.Fragment >
   );
 }
 
@@ -218,9 +289,9 @@ export default function CollapsibleTable({ rows }) {
             <TableCell />
             <TableCell>Order</TableCell>
             <TableCell align="right">Metode Pembayaran</TableCell>
-            <TableCell align="right">Paid</TableCell>
-            <TableCell align="right">Status</TableCell>
-            <TableCell align="right">Coupon</TableCell>
+            <TableCell align="right">Status Pembayaran</TableCell>
+            <TableCell align="center">Status Order</TableCell>
+            <TableCell align="right">Kupon</TableCell>
             <TableCell align="right">Total</TableCell>
           </TableRow>
         </TableHead>
