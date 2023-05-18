@@ -7,14 +7,6 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import Main from '../components/home/main';
 import Category from '../components/home/category';
 import db from '../utils/database';
-// import {
-//   gamingSwiper,
-//   homeImprovSwiper,
-//   women_accessories,
-//   women_dresses,
-//   women_shoes,
-//   women_swiper,
-// } from '../data/home';
 import { useMediaQuery } from 'react-responsive';
 import ProductsSwiper from '../components/productsSwiper';
 import Product from '../models/Product';

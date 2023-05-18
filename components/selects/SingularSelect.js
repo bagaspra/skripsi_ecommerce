@@ -15,9 +15,8 @@ export default function SingularSelect({
     <div style={{ marginBottom: '1rem' }}>
       {header && (
         <div
-          className={`${styles.header} ${
-            meta.error ? styles.header__error : ''
-          }`}
+          className={`${styles.header} ${meta.error ? styles.header__error : ''
+            }`}
         >
           <div className={styles.flex}>
             {meta.error && (
@@ -35,14 +34,13 @@ export default function SingularSelect({
         disabled={disabled}
         value={field.value}
         onChange={handleChange}
-        className={`${styles.select} ${
-          meta.touched && meta.error && styles.error__select
-        }`}
+        className={`${styles.select} ${meta.touched && meta.error && styles.error__select
+          }`}
       >
         <MenuItem key={''} value={''}>
           No Selected / Or Empty
         </MenuItem>
-        {data.map((option) => (
+        {data?.map((option) => (
           <MenuItem key={option._id} value={option._id || option.name}>
             {option.name}
           </MenuItem>

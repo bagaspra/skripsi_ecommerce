@@ -27,24 +27,24 @@ export default function AddReview({ product, setReviews }) {
   const handleSubmit = async () => {
     setLoading(true);
     let msgs = [];
-    if (!size) {
-      msgs.push({
-        msg: 'Please select a size !',
-        type: 'error',
-      });
-    }
-    if (!style) {
-      msgs.push({
-        msg: 'Please select a style !',
-        type: 'error',
-      });
-    }
-    if (!fit) {
-      msgs.push({
-        msg: 'Please select a fit !',
-        type: 'error',
-      });
-    }
+    // if (!size) {
+    //   msgs.push({
+    //     msg: 'Please select a size !',
+    //     type: 'error',
+    //   });
+    // }
+    // if (!style) {
+    //   msgs.push({
+    //     msg: 'Please select a style !',
+    //     type: 'error',
+    //   });
+    // }
+    // if (!fit) {
+    //   msgs.push({
+    //     msg: 'Please select a fit !',
+    //     type: 'error',
+    //   });
+    // }
     if (!review) {
       msgs.push({
         msg: 'Please add a review !',
@@ -86,9 +86,9 @@ export default function AddReview({ product, setReviews }) {
         images: uploaded_images,
       });
       setReviews(data.reviews);
-      setStyle('');
-      setSize('');
-      setFit('');
+      // setStyle('');
+      // setSize('');
+      // setFit('');
       setImages([]);
       setRating(0);
       setReview('');
@@ -100,7 +100,7 @@ export default function AddReview({ product, setReviews }) {
       <DialogModal />
       <div className={styles.reviews__add_wrap}>
         <div className={styles.flex} style={{ gap: '10px' }}>
-          <Select
+          {/* <Select
             property={size}
             text="Varian"
             data={product.allSizes.filter((x) => x.size !== size)}
@@ -117,7 +117,7 @@ export default function AddReview({ product, setReviews }) {
             text="How does it fit"
             data={fits.filter((x) => x !== fit)}
             handleChange={setFit}
-          />
+          /> */}
         </div>
         <Images images={images} setImages={setImages} />
         <textarea
@@ -146,4 +146,4 @@ export default function AddReview({ product, setReviews }) {
     </div>
   );
 }
-let fits = ['Small', 'True to size', 'Large'];
+// let fits = ['Small', 'True to size', 'Large'];

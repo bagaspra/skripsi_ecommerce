@@ -61,6 +61,7 @@ handler.post(async (req, res) => {
     }
 });
 
+
 handler.delete(async (req, res) => {
     try {
         const { id } = req.body;

@@ -11,9 +11,8 @@ export default function TableSelect({ property, text, data, handleChange }) {
         onMouseOver={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
         style={{
-          background: `${
-            text == 'Style' && property?.color && `${property?.color}`
-          }`,
+          background: `${text == 'Style' && property?.color && `${property?.color}`
+            }`,
         }}
       >
         <span

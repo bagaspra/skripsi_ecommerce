@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { BsFillPatchMinusFill, BsFillPatchPlusFill } from 'react-icons/bs';
-import { sizesList } from '../../../../data/sizes';
 import styles from './styles.module.scss';
 
 export default function Sizes({ sizes, product, setProduct }) {
@@ -19,13 +18,13 @@ export default function Sizes({ sizes, product, setProduct }) {
   };
   return (
     <div>
-      <div className={styles.header}>Sizes / Quantity /Price</div>
+      <div className={styles.header}>Tipe/Kuantitas/Harga</div>
       <button
         type="reset"
         className={styles.click_btn}
         onClick={() => {
           if (!noSize) {
-            let data = sizes.map((item) => {
+            let data = sizes?.map((item) => {
               return {
                 qty: item.qty,
                 price: item.price,
@@ -33,7 +32,7 @@ export default function Sizes({ sizes, product, setProduct }) {
             });
             setProduct({ ...product, sizes: data });
           } else {
-            let data = sizes.map((item) => {
+            let data = sizes?.map((item) => {
               return {
                 size: item.size || '',
                 qty: item.qty,
@@ -45,29 +44,24 @@ export default function Sizes({ sizes, product, setProduct }) {
           setNoSize((prev) => !prev);
         }}
       >
-        {noSize ? 'Click if product has size' : 'Click if product has no size'}
+        {noSize ? 'Klik jika produk punya tipe' : 'Klik jika produk tidak punya tipe'}
       </button>
       {sizes
-        ? sizes.map((size, i) => (
+        ? sizes?.map((size, i) => (
           <div className={styles.clicktoadd} key={i}>
-            <select
+            <input
+              type="text"
               name="size"
+              placeholder="Tipe Produk"
               value={noSize ? '' : size.size}
               disabled={noSize}
               style={{ display: `${noSize ? 'none' : ''}` }}
               onChange={(e) => handleSize(i, e)}
-            >
-              <option value="">Pilih Tipe</option>
-              {sizesList.map((s) => (
-                <option value={s} key={s}>
-                  {s}
-                </option>
-              ))}
-            </select>
+            />
             <input
               type="number"
               name="qty"
-              placeholder={noSize ? 'Product Quantity' : 'Size Quantity'}
+              placeholder={noSize ? 'Produk Kuantitas' : 'Produk Kuantitas'}
               min={1}
               value={size.qty}
               onChange={(e) => handleSize(i, e)}
@@ -75,12 +69,12 @@ export default function Sizes({ sizes, product, setProduct }) {
             <input
               type="number"
               name="price"
-              placeholder={noSize ? 'Product Price' : 'Size Price'}
+              placeholder={noSize ? 'Harga Produk' : 'Harga Produk'}
               min={1}
               value={size.price}
               onChange={(e) => handleSize(i, e)}
             />
-            {!noSize ? (
+            {!noSize && (
               <>
                 <BsFillPatchMinusFill onClick={() => handleRemove(i)} />
                 <BsFillPatchPlusFill
@@ -99,8 +93,6 @@ export default function Sizes({ sizes, product, setProduct }) {
                   }}
                 />
               </>
-            ) : (
-              ''
             )}
           </div>
         ))

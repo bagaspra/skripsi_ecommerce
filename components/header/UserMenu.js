@@ -32,9 +32,9 @@ export default function UserMenu({ session }) {
         <li>
           <Link href="/profile/address">Address</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/profile/whishlist">Whishlist</Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

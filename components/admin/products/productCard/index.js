@@ -57,7 +57,7 @@ export default function ProductCard({ product, setProduct }) {
           <SwiperSlide>
             <div className={styles.product__item}>
               <div className={styles.product__item_img}>
-                <img src={p.images[0].url} alt="" />
+                <img src={p.images[0]?.url} alt="" />
               </div>
               <div className={styles.product__actions}>
                 <Link href={`/admin/dashboard/product/${product._id}`}>

@@ -21,7 +21,7 @@ export default function Review({ review }) {
             style={{ color: '#facf19' }}
           />
           <p>{review.review}</p>
-          <p>
+          {/* <p>
             <span>Overall Fit:</span>
             {review.fit}
             &nbsp;&nbsp;
@@ -35,7 +35,7 @@ export default function Review({ review }) {
                 className={styles.review__img}
               />
             </div>
-          </p>
+          </p> */}
         </div>
       </div>
       <div className={styles.flex}>
@@ -44,10 +44,6 @@ export default function Review({ review }) {
             review.images.map((img) => <img src={img?.url} alt="" />)}
         </div>
         <div className={styles.review__extra}>
-          <div className={styles.review__extra_likes}>
-            {review.likes && review.likes?.likes}
-            <AiOutlineLike />
-          </div>
           <div className={styles.review__extra_date}>
             {review?.updatedAt?.slice(0, 10)}
           </div>

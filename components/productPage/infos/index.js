@@ -128,10 +128,10 @@ export default function Infos({ product, setActiveImg }) {
           {product.numReviews == 1 ? ' ulasan' : ' ulasan'})
         </div>
         <div className={styles.infos__price}>
-          {!size ? <h2>{product.priceRange}</h2> : <h1>{product.price}$</h1>}
+          {!size ? <h2>{product.priceRange}</h2> : <h1>Rp. {product.price}</h1>}
           {product.discount > 0 ? (
             <h3>
-              {size && <span>{product.priceBefore}$</span>}
+              {size && <span>Rp. {product.priceBefore}</span>}
               <span>(-{product.discount}%)</span>
             </h3>
           ) : (
@@ -203,16 +203,11 @@ export default function Infos({ product, setActiveImg }) {
             <BsHandbagFill />
             <b>MASUK KERANJANG</b>
           </button>
-          <button onClick={() => handleWishlist()}>
-            <BsHeart />
-            WISHLIST
-          </button>
         </div>
         {error && <span className={styles.error}>{error}</span>}
         {success && <span className={styles.success}>{success}</span>}
         <Share />
         <Accordian details={[product.description, ...product.details]} />
-        <SimillarSwiper />
       </div>
     </div>
   );

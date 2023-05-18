@@ -28,12 +28,12 @@ export default function Top({ country }) {
           <li className={styles.li}>
             <span>Bantuan</span>
           </li>
-          <li className={styles.li}>
+          {/* <li className={styles.li}>
             <BsSuitHeart />
             <Link href="/profile/whishlist">
               <span>Whishlist</span>
             </Link>
-          </li>
+          </li> */}
           <li
             className={styles.li}
             onMouseOver={() => setVisible(true)}

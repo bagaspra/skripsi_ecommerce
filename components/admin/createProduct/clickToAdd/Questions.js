@@ -19,7 +19,7 @@ export default function Questions({ questions, product, setProduct }) {
   return (
     <div>
       <div className={styles.header}>Questions</div>
-      {questions.length == 0 && (
+      {questions?.length == 0 && (
         <BsFillPatchPlusFill
           className={styles.svg}
           onClick={() => {

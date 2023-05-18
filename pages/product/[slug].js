@@ -74,11 +74,11 @@ export async function getServerSideProps(context) {
       return p.color;
     }),
     priceRange: subProduct.discount
-      ? `From ${(prices[0] - prices[0] / subProduct.discount).toFixed(2)} to ${(
+      ? `Rp. ${(prices[0] - prices[0] / subProduct.discount).toFixed(2)} - Rp. ${(
         prices[prices.length - 1] -
         prices[prices.length - 1] / subProduct.discount
-      ).toFixed(2)}$`
-      : `From ${prices[0]} to ${prices[prices.length - 1]}$`,
+      ).toFixed(2)}`
+      : `Dari ${prices[0]} to ${prices[prices.length - 1]}`,
     price:
       subProduct.discount > 0
         ? (

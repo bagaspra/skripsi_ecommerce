@@ -111,8 +111,7 @@ export default function Product({ product, selected, setSelected }) {
           </div>
           {product.quantity < 1 && (
             <div className={styles.notAvailable}>
-              This product is out of stock, Add it to your whishlist it may get
-              restocked.
+              This product is out of stock
             </div>
           )}
         </div>

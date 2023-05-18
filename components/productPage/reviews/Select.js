@@ -30,7 +30,7 @@ export default function Select({ property, text, data, handleChange }) {
           ) : !property && text == 'How does it fit' ? (
             'How Does it fit'
           ) : (
-            'Select Style'
+            'Select Tipe'
           )}
           <IoArrowDown />
         </span>

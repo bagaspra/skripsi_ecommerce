@@ -9,6 +9,7 @@ handler.get(async (req, res) => {
     const id = req.query.id;
     const style = req.query.style || 0;
     const size = req.query.size || 0;
+    const sku = req.query.sku || 0;
     const product = await Product.findById(id).lean();
     let discount = product.subProducts[style].discount;
     let priceBefore = product.subProducts[style].sizes[size].price;
@@ -25,6 +26,7 @@ handler.get(async (req, res) => {
       category: product.category,
       subCategories: product.subCategories,
       shipping: product.shipping,
+      sku: product.sku,
       images: product.subProducts[style].images,
       color: product.subProducts[style].color,
       size: product.subProducts[style].sizes[size].size,

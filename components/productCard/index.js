@@ -58,7 +58,7 @@ export default function ProductCard({ product }) {
               ? `Rp.${prices[0]}`
               : `Rp.${prices[0]}-${prices[prices.length - 1]}`}
           </span>
-          <div className={styles.product__colors}>
+          {/* <div className={styles.product__colors}>
             {styless &&
               styless.map((style, i) =>
                 style.image ? (
@@ -81,7 +81,7 @@ export default function ProductCard({ product }) {
                   ></span>
                 )
               )}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
