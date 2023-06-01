@@ -58,11 +58,11 @@ export default function User() {
               <AiOutlineMessage />
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link legacyBehavior href="/">
               <BsHeart />
             </Link>
-          </li>
+          </li> */}
         </ul>
         <div className={styles.user__swiper}>
           <img

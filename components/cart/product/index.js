@@ -59,7 +59,7 @@ export default function Product({ product, selected, setSelected }) {
                 : product.name}
             </h1>
             <div style={{ zIndex: '2' }}>
-              <BsHeart />
+              {/* <BsHeart /> */}
             </div>
             <div
               style={{ zIndex: '2' }}
@@ -69,7 +69,7 @@ export default function Product({ product, selected, setSelected }) {
             </div>
           </div>
           <div className={styles.product__style}>
-            <img src={product.color.image} alt="" />
+            {/* <img src={product.color.image} alt="" /> */}
             {product.size && <span>{product.size}</span>}
             Rp. {product.price && <span>{product.price.toFixed(2)}</span>}
             <MdOutlineKeyboardArrowRight />

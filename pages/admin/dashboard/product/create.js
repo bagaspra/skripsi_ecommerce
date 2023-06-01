@@ -120,7 +120,7 @@ export default function create({ parents, categories }) {
     ),
    */
     sku: Yup.string().required("Please add a sku/number"),
-    color: Yup.string().required("Please add a color"),
+    // color: Yup.string().required("Please add a color"),
     description: Yup.string().required("Please add a description"),
   });
   const createProduct = async () => {
@@ -179,7 +179,7 @@ export default function create({ parents, categories }) {
   };
   return (
     <Layout>
-      <div className={styles.header}>Create Product</div>
+      <div className={styles.header}>Buat Produk</div>
 
       <Formik
         enableReinitialize
@@ -205,8 +205,8 @@ export default function create({ parents, categories }) {
           <Form>
             <Images
               name="imageInputFile"
-              header="Product Carousel Images"
-              text="Add images"
+              header="Gambar Produk"
+              text="Tambah gambar"
               images={images}
               setImages={setImages}
               setColorImage={setColorImage}
@@ -232,26 +232,26 @@ export default function create({ parents, categories }) {
               setProduct={setProduct}
               colorImage={colorImage}
             />
-            <Style
+            {/* <Style
               name="styleInput"
               product={product}
               setProduct={setProduct}
               colorImage={colorImage}
-            />
+            /> */}
             <SingularSelect
               name="parent"
               value={product.parent}
-              placeholder="Parent product"
+              placeholder="Parent produk"
               data={parents}
-              header="Add to an existing product"
+              header="Pilih parent produk"
               handleChange={handleChange}
             />
             <SingularSelect
               name="category"
               value={product.category}
-              placeholder="Category"
+              placeholder="Kategori"
               data={categories}
-              header="Select a Category"
+              header="Pilih Kategori"
               handleChange={handleChange}
               disabled={product.parent}
             />
@@ -259,7 +259,7 @@ export default function create({ parents, categories }) {
               <MultipleSelect
                 value={product.subCategories}
                 data={subs}
-                header="Select SubCategories"
+                header="Pilih Subkategori"
                 name="subCategories"
                 disabled={product.parent}
                 handleChange={handleChange}
@@ -268,14 +268,14 @@ export default function create({ parents, categories }) {
             <div className={styles.header}>Basic Infos</div>
             <AdminInput
               type="text"
-              label="Name"
+              label="Nama"
               name="name"
               placholder="Product name"
               onChange={handleChange}
             />
             <AdminInput
               type="text"
-              label="Description"
+              label="Deskripsi"
               name="description"
               placholder="Product description"
               onChange={handleChange}
@@ -296,7 +296,7 @@ export default function create({ parents, categories }) {
             />
             <AdminInput
               type="text"
-              label="Discount"
+              label="Diskon"
               name="discount"
               placholder="Product discount"
               onChange={handleChange}
@@ -320,7 +320,7 @@ export default function create({ parents, categories }) {
               className={`${styles.btn} ${styles.btn__primary} ${styles.submit_btn}`}
               type="submit"
             >
-              Create Product
+              Buat Produk
             </button>
           </Form>
         )}

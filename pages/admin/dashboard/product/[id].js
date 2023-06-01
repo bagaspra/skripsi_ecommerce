@@ -69,6 +69,7 @@ function EditProductPage({ parents, categories }) {
     const [subs, setSubs] = useState([]);
     const [colorImage, setColorImage] = useState("");
     const [images, setImages] = useState([]);
+    const [tempImages, setTempImages] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedParent, setSelectedParent] = useState('');
     const [sizes, setSizes] = useState([]);
@@ -90,6 +91,7 @@ function EditProductPage({ parents, categories }) {
                         price: productData.price,
                     };
                     setSizes([newSizeData]);
+                    setTempImages(imageUrls);
                 })
                 .catch((error) => {
                     console.error(error);
@@ -166,42 +168,51 @@ function EditProductPage({ parents, categories }) {
             );
         }
     };
-    let uploaded_images = [];
-    let style_img = "";
 
     const editProductHandler = async () => {
         setLoading(true);
-        if (images) {
-            let temp = images.map((img) => {
-                return dataURItoBlob(img);
-            });
-            const path = "product images";
-            let formData = new FormData();
-            formData.append("path", path);
-            temp.forEach((image) => {
-                formData.append("file", image);
-            });
-            uploaded_images = await uploadImages(formData);
-        }
-        if (product.color.image) {
-            let temp = dataURItoBlob(product.color.image);
-            let path = "product style images";
-            let formData = new FormData();
-            formData.append("path", path);
-            formData.append("file", temp);
-            let cloudinary_style_img = await uploadImages(formData);
-            style_img = cloudinary_style_img[0].url;
-        }
+        let uploaded_images = [];
+        let style_img = '';
+
         try {
-            const { data } = await axios.put(`/api/product/${id}`, {
+            // Menentukan apakah gambar harus diunggah ulang
+            const shouldUploadImages = !arraysEqual(images, tempImages);
+
+            if (shouldUploadImages) {
+                // Mengunggah gambar jika perlu
+                let temp = images.map((img) => {
+                    return dataURItoBlob(img);
+                });
+
+                const path = 'product images';
+                let formData = new FormData();
+                formData.append('path', path);
+                temp.forEach((image) => {
+                    formData.append('file', image);
+                });
+                uploaded_images = await uploadImages(formData);
+            }
+            // Mengunggah gambar style jika perlu
+            if (product.color.image) {
+                let temp = dataURItoBlob(product.color.image);
+                let path = 'product style images';
+                let formData = new FormData();
+                formData.append('path', path);
+                formData.append('file', temp);
+                let cloudinary_style_img = await uploadImages(formData);
+                style_img = cloudinary_style_img[0].url;
+            }
+
+            const { data } = await axios.patch(`/api/product/${id}`, {
                 ...product,
                 sizes,
-                images: uploaded_images,
+                images: shouldUploadImages ? uploaded_images : (images || tempImages || []),
                 color: {
                     image: style_img,
                     color: product.color.color,
                 },
             });
+
             setLoading(false);
             toast.success(data.message);
         } catch (error) {
@@ -210,6 +221,20 @@ function EditProductPage({ parents, categories }) {
         }
     };
 
+    // Fungsi untuk membandingkan dua array
+    const arraysEqual = (a, b) => {
+        if (a.length !== b.length) {
+            return false;
+        }
+
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] !== b[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    };
     return (
         <Layout>
             <div className={styles.header}>Edit Product</div>
@@ -237,12 +262,13 @@ function EditProductPage({ parents, categories }) {
                     <Form>
                         <Images
                             name="imageInputFile"
-                            header="Product Carousel Images"
+                            header="Gambar Produk"
                             text="Add images"
                             images={images}
                             setImages={setImages}
                             setColorImage={setColorImage}
                         />
+
                         <div className={styles.flex}>
                             {product.color.image && (
                                 <img

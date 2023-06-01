@@ -6,13 +6,10 @@ import SubCategory from '../../models/SubCategory';
 import User from '../../models/User';
 import Head from 'next/head';
 import Header from '../../components/header';
-import Footer from '../../components/footer';
-import { produceWithPatches } from 'immer';
 import MainSwiper from '../../components/productPage/mainSwiper';
 import { useState } from 'react';
 import Infos from '../../components/productPage/infos';
 import Reviews from '../../components/productPage/reviews';
-import ProductsSwiper from '../../components/productsSwiper';
 export default function product({ product, related }) {
   const [activeImg, setActiveImg] = useState('');
   return (

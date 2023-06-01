@@ -18,7 +18,7 @@ export default function Details({ details, product, setProduct }) {
   };
   return (
     <div>
-      <div className={styles.header}>Details</div>
+      <div className={styles.header}>Detail Produk</div>
       {details?.length == 0 && (
         <BsFillPatchPlusFill
           className={styles.svg}
@@ -42,7 +42,7 @@ export default function Details({ details, product, setProduct }) {
             <input
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder="Nama"
               value={detail.name}
               onChange={(e) => handleDetails(i, e)}
             />

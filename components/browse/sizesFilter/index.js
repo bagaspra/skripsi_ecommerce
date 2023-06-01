@@ -12,7 +12,7 @@ export default function SizesFilter({ sizes, sizeHandler }) {
   return (
     <div className={styles.filter}>
       <h3>
-        Sizes <span>{show ? <FaMinus /> : <BsPlusLg />}</span>
+        Type <span>{show ? <FaMinus /> : <BsPlusLg />}</span>
       </h3>
       {show && (
         <div className={styles.filter__sizes}>

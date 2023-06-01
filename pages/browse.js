@@ -2,6 +2,7 @@ import styles from "../styles/browse.module.scss";
 import db from "../utils/database";
 import Product from "../models/Product";
 import Category from "../models/Category";
+import SubCategory from "../models/SubCategory";
 import Header from "../components/header";
 import {
   filterArray,
@@ -23,7 +24,6 @@ import { Pagination } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import ProductCard from "@/components/productCard";
-import SubCategory from "../models/SubCategory";
 export default function Browse({
   categories,
   subCategories,
@@ -203,13 +203,13 @@ export default function Browse({
       <div className={styles.browse__container}>
         <div ref={el}>
           <div className={styles.browse__path}>Home / Browse</div>
-          <div className={styles.browse__tags}>
+          {/* <div className={styles.browse__tags}>
             {categories.map((c) => (
               <Link href="/" key={c._id} legacyBehavior>
                 <a>{c.name}</a>
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
         <div
           className={`${styles.browse__store} ${scrollY >= height ? styles.fixed : ""
@@ -236,22 +236,22 @@ export default function Browse({
               colorHandler={colorHandler}
               replaceQuery={replaceQuery}
             />
-            <BrandsFilter
+            {/* <BrandsFilter
               brands={brands}
               brandHandler={brandHandler}
               replaceQuery={replaceQuery}
-            />
-            <StylesFilter
+            /> */}
+            {/* <StylesFilter
               data={stylesData}
               styleHandler={styleHandler}
               replaceQuery={replaceQuery}
-            />
-            <PatternsFilter
+            /> */}
+            {/* <PatternsFilter
               patterns={patterns}
               patternHandler={patternHandler}
               replaceQuery={replaceQuery}
-            />
-            <MaterialsFilter
+            /> */}
+            {/* <MaterialsFilter
               materials={materials}
               materialHandler={materialHandler}
               replaceQuery={replaceQuery}
@@ -259,7 +259,7 @@ export default function Browse({
             <GenderFilter
               genderHandler={genderHandler}
               replaceQuery={replaceQuery}
-            />
+            /> */}
           </div>
           <div className={styles.browse__store_products_wrap}>
             <HeadingFilters

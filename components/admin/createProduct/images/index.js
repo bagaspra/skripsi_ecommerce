@@ -1,6 +1,5 @@
 import { ErrorMessage, useField } from 'formik';
 import { useRef } from 'react';
-import { FaStaylinked } from 'react-icons/fa';
 import { RiDeleteBin7Fill, RiShape2Line } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
 import { showDialog } from '../../../../store/DialogSlice';

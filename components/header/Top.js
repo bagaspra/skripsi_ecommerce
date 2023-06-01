@@ -1,6 +1,5 @@
 import styles from './styles.module.scss';
 import { MdSecurity } from 'react-icons/md';
-import { BsSuitHeart } from 'react-icons/bs';
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from 'react-icons/ri';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -18,22 +17,16 @@ export default function Top({ country }) {
             <img src={country?.flag} alt="" />
             <span>{country?.name} / USD</span>
           </li> */}
-          <li className={styles.li}>
+          {/* <li className={styles.li}>
             <MdSecurity />
             <span>Perlindungan Pembeli</span>
-          </li>
+          </li> */}
           <li className={styles.li}>
             <span>Pelayanan pelanggan</span>
           </li>
           <li className={styles.li}>
             <span>Bantuan</span>
           </li>
-          {/* <li className={styles.li}>
-            <BsSuitHeart />
-            <Link href="/profile/whishlist">
-              <span>Whishlist</span>
-            </Link>
-          </li> */}
           <li
             className={styles.li}
             onMouseOver={() => setVisible(true)}

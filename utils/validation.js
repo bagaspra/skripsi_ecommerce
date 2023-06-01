@@ -105,7 +105,7 @@ export const validateEditProduct = (product, images) => {
       break;
     } else {
       checks.push({
-        msg: `At least one size/qty/price added.`,
+        msg: `At least one type/qty/price added.`,
         type: 'success',
       });
     }

@@ -2,20 +2,20 @@ export const sidebarData = [
   {
     heading: 'My Account',
     links: [
+      // {
+      //   name: 'My Profile',
+      //   link: '/profile',
+      // },
       {
-        name: 'My Profile',
-        link: '/profile',
-      },
-      {
-        name: 'Addresses',
+        name: 'Alamat',
         link: '/profile/address',
       },
       {
-        name: 'My Payment Options',
+        name: 'Pembayaran',
         link: '/profile/payment',
       },
       {
-        name: 'Account Security',
+        name: 'Keamanan Akun',
         link: '/profile/security',
       },
     ],
@@ -24,43 +24,43 @@ export const sidebarData = [
     heading: 'My Orders',
     links: [
       {
-        name: 'All Orders',
+        name: 'Semua Order',
         link: '/profile/orders',
         filter: '',
       },
       {
-        name: 'Paid Orders',
+        name: 'Sudah dibayar',
         link: '/profile/orders',
         filter: 'paid',
       },
       {
-        name: 'Unpaid Orders',
+        name: 'Belum dibayar',
         link: '/profile/orders',
         filter: 'unpaid',
       },
 
       {
-        name: 'Processing Orders',
+        name: 'Diproses',
         link: '/profile/orders',
         filter: 'Processing',
       },
       {
-        name: 'Unprocessed Orders',
+        name: 'Belum diproses',
         link: '/profile/orders',
         filter: 'Not Processed',
       },
+      // {
+      //   name: 'Dispatched Orders',
+      //   link: '/profile/orders',
+      //   filter: 'Dispatched',
+      // },
+      // {
+      //   name: 'Delievered Orders',
+      //   link: '/profile/orders',
+      //   filter: 'Completed',
+      // },
       {
-        name: 'Dispatched Orders',
-        link: '/profile/orders',
-        filter: 'Dispatched',
-      },
-      {
-        name: 'Delievered Orders',
-        link: '/profile/orders',
-        filter: 'Completed',
-      },
-      {
-        name: 'Cancelled Orders',
+        name: 'Dibatalkan',
         link: '/profile/orders',
         filter: 'Cancelled',
       },
@@ -106,42 +106,42 @@ export const sidebarData = [
   //   ],
   // },
   {
-    heading: 'Sign out',
+    heading: 'Logout',
     link: [],
   },
 ];
 
 export const ordersLinks = [
   {
-    name: 'All Orders',
+    name: 'Semua order',
     filter: '',
   },
   {
-    name: 'Paid Orders',
+    name: 'Sudah dibayar',
     filter: 'paid',
   },
   {
-    name: 'Unpaid Orders',
+    name: 'Belum dibayar',
     filter: 'unpaid',
   },
   {
-    name: 'Processing Orders',
+    name: 'Diproses',
     filter: 'Processing',
   },
   {
-    name: 'Unprocessed Orders',
+    name: 'Belum diproses',
     filter: 'Not Processed',
   },
+  // {
+  //   name: 'Dispatched Orders',
+  //   filter: 'Dispatched',
+  // },
+  // {
+  //   name: 'Delievered Orders',
+  //   filter: 'Delievered',
+  // },
   {
-    name: 'Dispatched Orders',
-    filter: 'Dispatched',
-  },
-  {
-    name: 'Delievered Orders',
-    filter: 'Delievered',
-  },
-  {
-    name: 'Cancelled Orders',
+    name: 'Dibatalkan',
     filter: 'Cancelled',
   },
 ];

@@ -13,5 +13,6 @@ module.exports = nextConfig, {
   experimental: {
     forceSwcTransforms: true,
   },
-}
-  ;
+};
+
+

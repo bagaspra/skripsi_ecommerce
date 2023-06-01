@@ -34,13 +34,12 @@ export default function Colors({
   return (
     <div className={styles.colors}>
       <div
-        className={`${styles.header} ${
-          meta.error[name] ? styles.header__error : ''
-        }`}
+        className={`${styles.header} ${meta.error[name] ? styles.header__error : ''
+          }`}
       >
         <div className={styles.flex}>
           {meta.error[name] && <img src="../../../images/warning.png" alt="" />}
-          Pick a product color
+          Pilih warna produk
         </div>
         <span>
           {meta.touched && meta.error && (

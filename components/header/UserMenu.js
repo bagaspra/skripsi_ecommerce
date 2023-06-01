@@ -23,9 +23,9 @@ export default function UserMenu({ session }) {
         </div>
       )}
       <ul>
-        <li>
+        {/* <li>
           <Link href="/profile">Account</Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/profile/orders">My Orders</Link>
         </li>

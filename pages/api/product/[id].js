@@ -49,7 +49,7 @@ handler.get(async (req, res) => {
     }
 });
 
-handler.put(async (req, res) => {
+handler.patch(async (req, res) => {
     try {
         db.connectDb();
         const id = req.query.id;
@@ -105,6 +105,36 @@ handler.put(async (req, res) => {
         }
 
         db.disconnectDb();
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+handler.delete(async (req, res) => {
+    try {
+        const productId = req.query.id;
+        const imageUrl = req.body.imageUrl;
+
+        db.connectDb();
+
+        // Temukan produk berdasarkan ID
+        const product = await Product.findById(productId);
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+
+        // Cari dan hapus URL gambar dari array images berdasarkan imageUrl
+        const updatedImages = product.images.filter((image) => image.url !== imageUrl);
+        product.images = updatedImages;
+
+        // Simpan perubahan pada dokumen produk
+        const updatedProduct = await product.save();
+
+        db.disconnectDb();
+        return res.json({
+            message: "Product image has been deleted successfully",
+            product: updatedProduct,
+        });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

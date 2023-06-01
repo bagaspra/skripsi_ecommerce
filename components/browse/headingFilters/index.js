@@ -25,7 +25,7 @@ export default function HeadingFilters({
   return (
     <div className={styles.filters}>
       <div className={styles.filters__price}>
-        <span>Price :</span>
+        <span>Harga :</span>
         <input
           type="number"
           placeholder="min"
@@ -35,13 +35,13 @@ export default function HeadingFilters({
         />
         <input
           type="number"
-          placeholder="max"
+          placeholder="maks"
           min="0"
           //value={router.query.price?.split("_")[1] || ""}
           onChange={(e) => priceHandler(e.target.value, "max")}
         />
       </div>
-      <div className={styles.filers__priceBtns}>
+      {/* <div className={styles.filers__priceBtns}>
         <Tooltip
           title={<h2>Check out products under 10$</h2>}
           placement="top"
@@ -92,8 +92,8 @@ export default function HeadingFilters({
             <span style={{ height: "100%" }}></span>
           </button>
         </Tooltip>
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className={styles.filters__shipping}
         onClick={() => shippingHandler(check.result)}
       >
@@ -104,7 +104,7 @@ export default function HeadingFilters({
           checked={router.query.shipping == "0"}
         />
         <label htmlFor="shipping">Free Shipping</label>
-      </div>
+      </div> */}
       <div
         className={styles.filters__rating}
         onClick={() => ratingHandler(checkRating.result)}

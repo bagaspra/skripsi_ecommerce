@@ -18,7 +18,7 @@ export default function Questions({ questions, product, setProduct }) {
   };
   return (
     <div>
-      <div className={styles.header}>Questions</div>
+      <div className={styles.header}>FAQ</div>
       {questions?.length == 0 && (
         <BsFillPatchPlusFill
           className={styles.svg}
@@ -42,14 +42,14 @@ export default function Questions({ questions, product, setProduct }) {
             <input
               type="text"
               name="question"
-              placeholder="Question"
+              placeholder="Pertanyaan"
               value={q.question}
               onChange={(e) => handleQuestion(i, e)}
             />
             <input
               type="text"
               name="answer"
-              placeholder="Answer"
+              placeholder="Jawaban"
               value={q.answer}
               onChange={(e) => handleQuestion(i, e)}
             />
