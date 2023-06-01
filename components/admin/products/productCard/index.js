@@ -59,15 +59,15 @@ export default function ProductCard({ product, setProduct }) {
                 <img src={p.images[0]?.url} alt="" />
               </div>
               <div className={styles.product__actions}>
-                <Link href={`/admin/dashboard/product/${p._id}`}>
+                <Link href={`/admin/dashboard/product/${product._id}`}>
                   <TbEdit />
                 </Link>
-                <Link href={`/product/${p.slug}?style=${i}`}>
+                <Link href={`/product/${product.slug}?style=${i}`}>
                   <AiOutlineEye />
                 </Link>
-                <button onClick={() => handleRemove(p._id)}>
-                  <RiDeleteBin2Line />
-                </button>
+                <Link href="/admin/dashboard/product/all">
+                  <RiDeleteBin2Line onClick={() => handleRemove(product._id)} />
+                </Link>
               </div>
             </div>
           </SwiperSlide>
