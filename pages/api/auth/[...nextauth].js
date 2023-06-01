@@ -1,8 +1,6 @@
 import NextAuth from 'next-auth';
 import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
-import GitHubProvider from 'next-auth/providers/github';
-import Auth0Provider from 'next-auth/providers/auth0';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import User from '../../../models/User';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
@@ -15,14 +13,9 @@ export default NextAuth({
   providers: [
     // OAuth authentication providers...
     CredentialsProvider({
-      // The name to display on the sign in form (e.g. "Sign in with...")
       name: 'Credentials',
-      // The credentials is used to generate a suitable form on the sign in page.
-      // You can specify whatever fields you are expecting to be submitted.
-      // e.g. domain, username, password, 2FA token, etc.
-      // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
+        username: { label: 'Username', type: 'text', placeholder: 'bagas' },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, req) {
@@ -36,10 +29,6 @@ export default NextAuth({
         }
       },
     }),
-    // GitHubProvider({
-    //   clientId: process.env.GITHUB_ID,
-    //   clientSecret: process.env.GITHUB_SECRET,
-    // }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
@@ -48,11 +37,6 @@ export default NextAuth({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    // Auth0Provider({
-    //   clientId: process.env.AUTH0_CLIENT_ID,
-    //   clientSecret: process.env.AUTH0_CLIENT_SECRET,
-    //   issuer: process.env.AUTH0_ISSUER,
-    // }),
   ],
   callbacks: {
     async session({ session, token }) {
@@ -75,11 +59,11 @@ export default NextAuth({
 
 const SignInUser = async ({ password, user }) => {
   if (!user.password) {
-    throw new Error('Please enter your password.');
+    throw new Error('Silahkan masukan password anda.');
   }
   const testPassword = await bcrypt.compare(password, user.password);
   if (!testPassword) {
-    throw new Error('Email or password is wrong!');
+    throw new Error('Email atau password salah!');
   }
   return user;
 };
