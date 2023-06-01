@@ -55,10 +55,10 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
   });
   const registerValidation = Yup.object({
     name: Yup.string()
-      .required("What's your name ?")
-      .min(2, 'First name must be between 2 and 16 characters.')
-      .max(16, 'First name must be between 2 and 16 characters.')
-      .matches(/^[aA-zZ]/, 'Numbers and special characters are not allowed.'),
+      .required("Siapa namamu ?")
+      .min(2, 'Nama pertama harus antara 2 dan 16 karakter.')
+      .max(16, 'Nama pertama harus antara 2 dan 16 karakter.')
+      .matches(/^[aA-zZ]/, 'Nomor dan karakter spesial tidak bisa digunakan'),
     email: Yup.string()
       .required(
         "You'll need this when you log in and if you ever need to reset your password."
