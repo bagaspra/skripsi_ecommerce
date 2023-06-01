@@ -1,7 +1,7 @@
 import Layout from '../../../components/admin/layout';
 import db from '../../../utils/database';
 import Category from '../../../models/Category';
-import SubCategory from '../../../models/SubCategory';
+import SubCategory from '../../../models/subCategory';
 import { useState } from 'react';
 import Create from '../../../components/admin/subCategories/Create';
 import List from '../../../components/admin/subCategories/List';

@@ -2,7 +2,7 @@ import styles from '../../styles/product.module.scss';
 import db from '../../utils/database';
 import Product from '../../models/Product';
 import Category from '../../models/Category';
-import SubCategory from '../../models/SubCategory';
+import SubCategory from '../../models/subCategory';
 import User from '../../models/User';
 import Head from 'next/head';
 import Header from '../../components/header';

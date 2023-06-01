@@ -1,5 +1,5 @@
 import nc from "next-connect";
-import SubCategory from "../../../models/SubCategory";
+import SubCategory from "../../../models/subCategory";
 import auth from "../../../middleware/auth";
 import admin from "../../../middleware/admin";
 import db from "../../../utils/database";

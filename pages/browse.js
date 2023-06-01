@@ -2,7 +2,7 @@ import styles from "../styles/browse.module.scss";
 import db from "../utils/database";
 import Product from "../models/Product";
 import Category from "../models/Category";
-import SubCategory from "../models/SubCategory";
+import SubCategory from "../models/subCategory";
 import Header from "../components/header";
 import {
   filterArray,
