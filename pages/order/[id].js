@@ -7,7 +7,6 @@ import db from '../../utils/database';
 import {
   PayPalButtons,
   usePayPalScriptReducer,
-  PayPalScriptProvider,
 } from '@paypal/react-paypal-js';
 import { useReducer, useEffect } from 'react';
 import axios from 'axios';
