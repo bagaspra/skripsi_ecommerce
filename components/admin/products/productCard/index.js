@@ -9,7 +9,6 @@ import { AiOutlineEye } from 'react-icons/ai';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import { useState } from 'react';
 export default function ProductCard({ product, setProduct }) {
   const handleRemove = async (id) => {
     try {
@@ -60,15 +59,15 @@ export default function ProductCard({ product, setProduct }) {
                 <img src={p.images[0]?.url} alt="" />
               </div>
               <div className={styles.product__actions}>
-                <Link href={`/admin/dashboard/product/${product._id}`}>
+                <Link href={`/admin/dashboard/product/${p._id}`}>
                   <TbEdit />
                 </Link>
-                <Link href={`/product/${product.slug}?style=${i}`}>
+                <Link href={`/product/${p.slug}?style=${i}`}>
                   <AiOutlineEye />
                 </Link>
-                <Link href="/">
-                  <RiDeleteBin2Line onClick={() => handleRemove(product._id)} />
-                </Link>
+                <button onClick={() => handleRemove(p._id)}>
+                  <RiDeleteBin2Line />
+                </button>
               </div>
             </div>
           </SwiperSlide>
