@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
@@ -9,7 +9,6 @@ import Router from 'next/router';
 export default function Summary({
   totalAfterDiscount,
   setTotalAfterDiscount,
-  user,
   cart,
   paymentMethod,
   selectedAddress,
@@ -18,9 +17,20 @@ export default function Summary({
   const [discount, setDiscount] = useState('');
   const [error, setError] = useState('');
   const [order_error, setOrder_Error] = useState('');
+  const [shippingPrice, setShippingPrice] = useState(0);
+
+  useEffect(() => {
+    if (selectedAddress?.city === 'Makassar') {
+      setShippingPrice(50000);
+    } else {
+      setShippingPrice(0);
+    }
+  }, [selectedAddress]);
+
   const validateCoupon = Yup.object({
-    coupon: Yup.string().required('Pleace enter a coupon first !'),
+    coupon: Yup.string().required('Please enter a coupon first!'),
   });
+
   const applyCouponHandler = async () => {
     const res = await applyCoupon(coupon);
     if (res.message) {
@@ -31,20 +41,24 @@ export default function Summary({
       setError('');
     }
   };
+
   const placeOrderHandler = async () => {
     try {
-      if (paymentMethod == '') {
+      if (paymentMethod === '') {
         setOrder_Error('Please choose a payment method.');
         return;
       } else if (!selectedAddress) {
         setOrder_Error('Please choose a shipping address.');
         return;
       }
+
+      let updatedShippingPrice = shippingPrice;
       const { data } = await axios.post('/api/order/create', {
         products: cart.products,
         shippingAddress: selectedAddress,
+        shippingPrice: updatedShippingPrice,
         paymentMethod,
-        total: totalAfterDiscount !== '' ? totalAfterDiscount : cart.cartTotal,
+        total: (totalAfterDiscount !== '' ? totalAfterDiscount : cart.cartTotal) + updatedShippingPrice,
         totalBeforeDiscount: cart.cartTotal,
         couponApplied: coupon,
       });
@@ -53,6 +67,9 @@ export default function Summary({
       setOrder_Error(error.response.data.message);
     }
   };
+
+  console.log(shippingPrice)
+
   return (
     <div className={styles.summary}>
       <div className={styles.header}>
@@ -79,21 +96,26 @@ export default function Summary({
                 Terapkan
               </button>
               <div className={styles.infos}>
+                {selectedAddress?.city === 'Makassar' && (
+                  <span>
+                    Biaya Pengiriman : <b>Rp. {shippingPrice}</b>
+                  </span>
+                )}
                 <span>
-                  Total : Rp. <b>{cart.cartTotal}</b>{' '}
+                  Total : Rp. <b>{cart.cartTotal + shippingPrice}</b>
                 </span>
                 {discount > 0 && (
                   <span className={styles.coupon_span}>
                     Kupon diterapkan : <b>-{discount}%</b>
                   </span>
                 )}
-                {totalAfterDiscount < cart.cartTotal &&
-                  totalAfterDiscount != '' && (
-                    <span>
-                      Total Akhir : <b>Rp. {totalAfterDiscount}</b>
-                    </span>
-                  )}
+                {totalAfterDiscount < cart.cartTotal && totalAfterDiscount !== '' && (
+                  <span>
+                    Total Akhir : <b>Rp. {totalAfterDiscount + shippingPrice}</b>
+                  </span>
+                )}
               </div>
+
             </Form>
           )}
         </Formik>

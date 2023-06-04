@@ -2,6 +2,7 @@ import { FaStaylinked } from 'react-icons/fa';
 import styles from './styles.module.scss';
 
 export default function Products({ cart }) {
+  console.log(cart)
   return (
     <div className={styles.products}>
       <div className={styles.products__header}>
@@ -18,7 +19,7 @@ export default function Products({ cart }) {
             <div className={styles.product__img}>
               <img src={product.image} alt="" />
               <div className={styles.product__infos}>
-                <img src={product.color.image} alt="" />
+                {/* <img src={product.color.image} alt="" /> */}
                 <span>{product.size}</span>
                 <span>x{product.qty}</span>
               </div>

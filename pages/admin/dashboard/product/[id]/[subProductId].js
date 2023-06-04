@@ -1,28 +1,26 @@
-import styles from "../../../../styles/products.module.scss";
-import Layout from "../../../../components/admin/layout";
-import db from "../../../../utils/database";
+import styles from "../../../../../styles/products.module.scss";
+import Layout from "../../../../../components/admin/layout";
+import db from "../../../../../utils/database";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
-import SingularSelect from "../../../../components/selects/SingularSelect";
-import MultipleSelect from "../../../../components/selects/MultipleSelect";
-import AdminInput from "../../../../components/inputs/adminInput";
-import DialogModal from "../../../../components/dialogModal";
+import SingularSelect from "../../../../../components/selects/SingularSelect";
+import MultipleSelect from "../../../../../components/selects/MultipleSelect";
+import AdminInput from "../../../../../components/inputs/adminInput";
 import { useDispatch } from "react-redux";
-import { showDialog } from "../../../../store/DialogSlice";
-import Images from "../../../../components/admin/createProduct/images";
-import Colors from "../../../../components/admin/createProduct/colors";
-import Style from "../../../../components/admin/createProduct/style";
-import Sizes from "../../../../components/admin/createProduct/clickToAdd/Sizes";
-import Details from "../../../../components/admin/createProduct/clickToAdd/Details";
-import Questions from "../../../../components/admin/createProduct/clickToAdd/Questions";
-import { validateEditProduct } from "../../../../utils/validation";
-import dataURItoBlob from "../../../../utils/dataURItoBlob";
-import { uploadImages } from "../../../../requests/upload";
-import Product from "../../../../models/Product";
-import Category from "../../../../models/Category";
+import { showDialog } from "../../../../../store/DialogSlice";
+import Images from "../../../../../components/admin/createProduct/images";
+import Colors from "../../../../../components/admin/createProduct/colors";
+import Sizes from "../../../../../components/admin/createProduct/clickToAdd/Sizes";
+import Details from "../../../../../components/admin/createProduct/clickToAdd/Details";
+import Questions from "../../../../../components/admin/createProduct/clickToAdd/Questions";
+import { validateEditProduct } from "../../../../../utils/validation";
+import dataURItoBlob from "../../../../../utils/dataURItoBlob";
+import { uploadImages } from "../../../../../requests/upload";
+import Product from "../../../../../models/Product";
+import Category from "../../../../../models/Category";
 import { useRouter } from "next/router";
 
 const initialState = {
@@ -85,13 +83,12 @@ function EditProductPage({ parents, categories }) {
                     setImages(imageUrls);
                     setProduct(productData);
                     setSelectedCategory(productData.category);
-                    // const newSizeData = productData.sizes.map((sizeData) => ({
-                    //     size: sizeData.size,
-                    //     qty: sizeData.qty,
-                    //     price: sizeData.price,
-                    //     id: sizeData._id.$oid,
-                    // }));
-                    // setSizes([newSizeData]);
+                    const newSizeData = {
+                        size: productData.size,
+                        qty: productData.quantity,
+                        price: productData.price,
+                    };
+                    setSizes([newSizeData]);
                     setTempImages(imageUrls);
                 })
                 .catch((error) => {
@@ -194,23 +191,24 @@ function EditProductPage({ parents, categories }) {
                 uploaded_images = await uploadImages(formData);
             }
             // Mengunggah gambar style jika perlu
-            // if (product.color.image) {
-            //     let temp = dataURItoBlob(product.color.image);
-            //     let path = 'product style images';
-            //     let formData = new FormData();
-            //     formData.append('path', path);
-            //     formData.append('file', temp);
-            //     let cloudinary_style_img = await uploadImages(formData);
-            //     style_img = cloudinary_style_img[0].url;
-            // }
+            if (product.color.image) {
+                let temp = dataURItoBlob(product.color.image);
+                let path = 'product style images';
+                let formData = new FormData();
+                formData.append('path', path);
+                formData.append('file', temp);
+                let cloudinary_style_img = await uploadImages(formData);
+                style_img = cloudinary_style_img[0].url;
+            }
 
             const { data } = await axios.patch(`/api/product/${id}`, {
                 ...product,
+                sizes,
                 images: shouldUploadImages ? uploaded_images : (images || tempImages || []),
-                // color: {
-                //     image: style_img,
-                //     color: product.color.color,
-                // },
+                color: {
+                    image: style_img,
+                    color: product.color.color,
+                },
             });
 
             setLoading(false);
@@ -235,9 +233,6 @@ function EditProductPage({ parents, categories }) {
 
         return true;
     };
-
-    console.log(product)
-
     return (
         <Layout>
             <div className={styles.header}>Edit Product</div>
@@ -272,7 +267,7 @@ function EditProductPage({ parents, categories }) {
                             setColorImage={setColorImage}
                         />
 
-                        {/* <div className={styles.flex}>
+                        <div className={styles.flex}>
                             {product.color.image && (
                                 <img
                                     src={product.color.image}
@@ -286,27 +281,27 @@ function EditProductPage({ parents, categories }) {
                                     style={{ background: `${product.color.color}` }}
                                 ></span>
                             )}
-                        </div> */}
-                        {/* <Colors
+                        </div>
+                        <Colors
                             name="color"
                             product={product}
                             setProduct={setProduct}
                             colorImage={colorImage}
-                        /> */}
+                        />
                         {/* <Style
                             name="styleInput"
                             product={product}
                             setProduct={setProduct}
                             colorImage={colorImage}
                         /> */}
-                        {/* <SingularSelect
+                        <SingularSelect
                             name="parent"
                             value={selectedParent}
                             placeholder="Parent product"
                             data={parents}
                             header="Add to an existing product"
                             handleChange={handleChange}
-                        /> */}
+                        />
                         <SingularSelect
                             name="category"
                             value={selectedCategory}
@@ -368,9 +363,9 @@ function EditProductPage({ parents, categories }) {
                             onChange={handleChange}
                         />
                         <Sizes
-                            sizes={product.sizes}
+                            sizes={sizes}
                             product={product}
-                            value={product.sizes}
+                            value={sizes}
                             setProduct={setProduct}
                         />
                         <Details

@@ -99,13 +99,12 @@ const orderSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      default: 'Not Processed',
+      default: 'Belum Diproses',
       enum: [
-        'Not Processed',
-        'Processing',
-        'Dispatched',
-        'Cancelled',
-        'Completed',
+        'Belum Diproses',
+        'Diproses',
+        'Dibatalkan',
+        'Selesai',
       ],
     },
     paidAt: {

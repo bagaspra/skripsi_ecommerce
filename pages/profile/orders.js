@@ -26,7 +26,7 @@ export default function orders({ user, tab, orders }) {
                 key={i}
                 className={
                   slugify(link.name, { lower: true }) ==
-                    router.query.q.split("__")[0]
+                    router.query.q?.split("__")[0]
                     ? styles.active
                     : ""
                 }
@@ -46,8 +46,8 @@ export default function orders({ user, tab, orders }) {
           <thead>
             <tr>
               <td>Order id</td>
-              <td>Products</td>
-              <td>Payment Method</td>
+              <td>Produk</td>
+              <td>Metode Pembayaran</td>
               <td>Total</td>
               <td>Paid</td>
               <td>Status</td>
@@ -70,7 +70,7 @@ export default function orders({ user, tab, orders }) {
                       ? "Credit Card"
                       : "COD"}
                 </td>
-                <td>{order.total}$</td>
+                <td>Rp. {order.total}</td>
                 <td className={styles.orders__paid}>
                   {order.isPaid ? (
                     <img src="../../../images/verified.png" alt="" />
@@ -97,7 +97,7 @@ export async function getServerSideProps(ctx) {
   const session = await getSession({ req });
   const tab = query.tab || 0;
   //------------
-  const filter = query.q.split("__")[1];
+  const filter = query.q?.split("__")[1];
   let orders = [];
   if (!filter) {
     orders = await Order.find({ user: session?.user.id })

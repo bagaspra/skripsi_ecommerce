@@ -64,16 +64,24 @@ handler.post(async (req, res) => {
 
 handler.delete(async (req, res) => {
     try {
-        const { id } = req.body;
+        const { id, subProduct } = req.body;
         db.connectDb();
-        await Product.findByIdAndRemove(id);
+
+        // Dapatkan produk berdasarkan ID
+        const product = await Product.findById(id);
+
+        // Hapus subproduk berdasarkan ID subproduk
+        product.subProducts.pull(subProduct);
+        await product.save();
+
         db.disconnectDb();
         return res.json({
-            message: "Product has been deleted successfuly",
+            message: "Subproduct has been deleted successfully",
             product: await Product.find({}).sort({ updatedAt: -1 }),
         });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
+
 export default handler;

@@ -42,7 +42,9 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
 
-export default function Accordian({ details }) {
+export default function Accordian({ details, questions }) {
+  console.log(details)
+  console.log(questions)
   const [expanded, setExpanded] = React.useState('');
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -85,10 +87,15 @@ export default function Accordian({ details }) {
           aria-controls="panel1d-content"
           id="panel1d-header"
         >
-          Size & Fit
+          FAQ
         </AccordionSummary>
         <AccordionDetails>
-          <div className={styles.infos__accordian_grid}></div>
+          {questions.slice(0, questions.length).map((info) => (
+            <div className={styles.infos__accordian_grid}>
+              <span>{info.question}:</span>
+              <span>{info.answer}</span>
+            </div>
+          ))}
         </AccordionDetails>
       </Accordion>
     </div>

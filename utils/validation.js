@@ -99,7 +99,7 @@ export const validateEditProduct = (product, images) => {
   for (var i = 0; i < sizes?.length; i++) {
     if (sizes[i].qty === '' || sizes[i].price === '' || sizes[i].size === '') {
       checks.push({
-        msg: `Please fill all information for sizes.`,
+        msg: `Please fill all information for type.`,
         type: 'error',
       });
       break;

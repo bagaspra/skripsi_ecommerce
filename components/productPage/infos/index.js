@@ -167,7 +167,7 @@ export default function Infos({ product, setActiveImg }) {
             ))}
           </div>
         </div>
-        <div className={styles.infos__colors}>
+        {/* <div className={styles.infos__colors}>
           {product.colors &&
             product.colors.map((color, i) => (
               <span
@@ -182,7 +182,7 @@ export default function Infos({ product, setActiveImg }) {
                 </Link>
               </span>
             ))}
-        </div>
+        </div> */}
         <div className={styles.infos__qty}>
           <button onClick={() => qty > 1 && setQty((prev) => prev - 1)}>
             <TbMinus />
@@ -207,7 +207,7 @@ export default function Infos({ product, setActiveImg }) {
         {error && <span className={styles.error}>{error}</span>}
         {success && <span className={styles.success}>{success}</span>}
         <Share />
-        <Accordian details={[product.description, ...product.details]} />
+        <Accordian details={[product.description, ...product.details]} questions={[...product.questions]} />
       </div>
     </div>
   );

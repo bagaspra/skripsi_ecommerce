@@ -11,6 +11,7 @@ handler.post(async (req, res) => {
     const {
       products,
       shippingAddress,
+      shippingPrice,
       paymentMethod,
       total,
       totalBeforeDiscount,
@@ -21,6 +22,7 @@ handler.post(async (req, res) => {
       user: user._id,
       products,
       shippingAddress,
+      shippingPrice,
       paymentMethod,
       total,
       totalBeforeDiscount,

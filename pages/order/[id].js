@@ -140,7 +140,7 @@ export default function order({
                         : product.name}
                     </h1>
                     <div className={styles.product__infos_style}>
-                      <img src={product.color.image} alt="" /> / {product.size}
+                      {product.size}
                     </div>
                     <div className={styles.product__infos_priceQty}>
                       Rp. {product.price} x {product.qty}
@@ -169,10 +169,10 @@ export default function order({
                         ).toFixed(2)}
                       </span>
                     </div>
-                    <div className={styles.order__products_total_sub}>
+                    {/* <div className={styles.order__products_total_sub}>
                       <span>Pajak</span>
                       <span>Rp. +{orderData.taxPrice}</span>
-                    </div>
+                    </div> */}
                     <div
                       className={`${styles.order__products_total_sub} ${styles.bordertop}`}
                     >
@@ -182,10 +182,10 @@ export default function order({
                   </>
                 ) : (
                   <>
-                    <div className={styles.order__products_total_sub}>
+                    {/* <div className={styles.order__products_total_sub}>
                       <span>Pajak</span>
                       <span>Rp. +{orderData.taxPrice}</span>
-                    </div>
+                    </div> */}
                     <div
                       className={`${styles.order__products_total_sub} ${styles.bordertop}`}
                     >

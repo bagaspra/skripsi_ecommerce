@@ -10,10 +10,10 @@ import { RiDeleteBin2Line } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 export default function ProductCard({ product, setProduct }) {
-  const handleRemove = async (id) => {
+  const handleRemove = async (id, subProduct) => {
     try {
       const { data } = await axios.delete('/api/admin/product', {
-        data: { id },
+        data: { id, subProduct },
       });
       setProduct(data.product);
       toast.success(data.message);
@@ -66,7 +66,7 @@ export default function ProductCard({ product, setProduct }) {
                   <AiOutlineEye />
                 </Link>
                 <Link href="/admin/dashboard/product/all">
-                  <RiDeleteBin2Line onClick={() => handleRemove(product._id)} />
+                  <RiDeleteBin2Line onClick={() => handleRemove(product._id, p._id)} />
                 </Link>
               </div>
             </div>

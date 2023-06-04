@@ -14,14 +14,21 @@ handler.get(async (req, res) => {
         let priceBefore = product.subProducts[style].sizes[size].price;
         let price = discount ? priceBefore - priceBefore / discount : priceBefore;
 
+        const sizes = product.subProducts[style].sizes.map((size) => ({
+            size: size.size,
+            qty: size.qty,
+            price: size.price,
+            id: size._id.$oid,
+        }));
+
         const details = product.details.map((detail) => ({
             name: detail.name,
             value: detail.value,
         }));
 
         const questions = product.questions.map((question) => ({
-            name: question.name,
-            value: question.value,
+            question: question.question,
+            answer: question.answer,
         }));
         db.disconnectDb();
         return res.json({
@@ -39,6 +46,7 @@ handler.get(async (req, res) => {
             color: product.subProducts[style].color,
             size: product.subProducts[style].sizes[size].size,
             price,
+            sizes,
             priceBefore,
             quantity: product.subProducts[style].sizes[size].qty,
             details,

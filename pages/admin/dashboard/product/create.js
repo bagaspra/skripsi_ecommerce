@@ -152,15 +152,15 @@ export default function create({ parents, categories }) {
       });
       uploaded_images = await uploadImages(formData);
     }
-    if (product.color.image) {
-      let temp = dataURItoBlob(product.color.image);
-      let path = "product style images";
-      let formData = new FormData();
-      formData.append("path", path);
-      formData.append("file", temp);
-      let cloudinary_style_img = await uploadImages(formData);
-      style_img = cloudinary_style_img[0].url;
-    }
+    // if (product.color.image) {
+    //   let temp = dataURItoBlob(product.color.image);
+    //   let path = "product style images";
+    //   let formData = new FormData();
+    //   formData.append("path", path);
+    //   formData.append("file", temp);
+    //   let cloudinary_style_img = await uploadImages(formData);
+    //   style_img = cloudinary_style_img[0].url;
+    // }
     try {
       const { data } = await axios.post("/api/admin/product", {
         ...product,
@@ -211,7 +211,7 @@ export default function create({ parents, categories }) {
               setImages={setImages}
               setColorImage={setColorImage}
             />
-            <div className={styles.flex}>
+            {/* <div className={styles.flex}>
               {product.color.image && (
                 <img
                   src={product.color.image}
@@ -225,27 +225,27 @@ export default function create({ parents, categories }) {
                   style={{ background: `${product.color.color}` }}
                 ></span>
               )}
-            </div>
-            <Colors
+            </div> */}
+            {/* <Colors
               name="color"
               product={product}
               setProduct={setProduct}
               colorImage={colorImage}
-            />
+            /> */}
             {/* <Style
               name="styleInput"
               product={product}
               setProduct={setProduct}
               colorImage={colorImage}
             /> */}
-            <SingularSelect
+            {/* <SingularSelect
               name="parent"
               value={product.parent}
               placeholder="Parent produk"
               data={parents}
               header="Pilih parent produk"
               handleChange={handleChange}
-            />
+            /> */}
             <SingularSelect
               name="category"
               value={product.category}
