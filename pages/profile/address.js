@@ -9,7 +9,7 @@ export default function addresses({ user, tab }) {
   return (
     <Layout session={user.user} tab={tab}>
       <div className={styles.header}>
-        <h1>MY ADDRESSES</h1>
+        <h1>ALAMAT</h1>
       </div>
       <Shipping
         user={user}

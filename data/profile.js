@@ -1,6 +1,6 @@
 export const sidebarData = [
   {
-    heading: 'My Account',
+    heading: 'Akun',
     links: [
       // {
       //   name: 'My Profile',
@@ -21,7 +21,7 @@ export const sidebarData = [
     ],
   },
   {
-    heading: 'My Orders',
+    heading: 'Order',
     links: [
       {
         name: 'Semua Order',
@@ -105,10 +105,10 @@ export const sidebarData = [
   //     },
   //   ],
   // },
-  {
-    heading: 'Logout',
-    link: [],
-  },
+  // {
+  //   heading: 'Logout',
+  //   link: [],
+  // },
 ];
 
 export const ordersLinks = [

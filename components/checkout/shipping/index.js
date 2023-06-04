@@ -175,7 +175,7 @@ export default function Shipping({ user, addresses, setAddresses, profile }) {
             zipCode,
             address1,
             address2,
-            country,
+            country: "Indonesia",
           }}
           validationSchema={validate}
           onSubmit={() => {
@@ -187,55 +187,55 @@ export default function Shipping({ user, addresses, setAddresses, profile }) {
               <SingularSelect
                 name="country"
                 value={country}
-                placeholder="*Country"
+                placeholder="*Negara"
                 handleChange={handleChange}
                 data={countries}
               />
               <div className={styles.col}>
                 <ShippingInput
                   name="firstName"
-                  placeholder="*First Name"
+                  placeholder="*Nama Pertama"
                   onChange={handleChange}
                 />
                 <ShippingInput
                   name="lastName"
-                  placeholder="*Last Name"
+                  placeholder="*Nama Akhir"
                   onChange={handleChange}
                 />
               </div>
               <div className={styles.col}>
                 <ShippingInput
                   name="state"
-                  placeholder="*State/Province"
+                  placeholder="*Provinsi"
                   onChange={handleChange}
                 />
                 <ShippingInput
                   name="city"
-                  placeholder="*City"
+                  placeholder="*Kota"
                   onChange={handleChange}
                 />
               </div>
               <ShippingInput
                 name="phoneNumber"
-                placeholder="*Phone number"
+                placeholder="*Nomor Telpon"
                 onChange={handleChange}
               />
               <ShippingInput
                 name="zipCode"
-                placeholder="*Post/Zip code"
+                placeholder="*Postal Kode"
                 onChange={handleChange}
               />
               <ShippingInput
                 name="address1"
-                placeholder="Address 1"
+                placeholder="Alamat 1"
                 onChange={handleChange}
               />
               <ShippingInput
                 name="address2"
-                placeholder="Address 2"
+                placeholder="Alamat 2"
                 onChange={handleChange}
               />
-              <button type="submit">Save Address</button>
+              <button type="submit">Simpan Alamat</button>
             </Form>
           )}
         </Formik>

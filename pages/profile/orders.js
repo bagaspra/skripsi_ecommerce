@@ -10,6 +10,10 @@ import { FiExternalLink } from "react-icons/fi";
 import slugify from "slugify";
 export default function orders({ user, tab, orders }) {
   const router = useRouter();
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price);
+  };
+
   return (
     <Layout session={user.user} tab={tab}>
       <Head>
@@ -17,7 +21,7 @@ export default function orders({ user, tab, orders }) {
       </Head>
       <div className={styles.orders}>
         <div className={styles.header}>
-          <h1>MY ORDERS</h1>
+          <h1>ORDERS</h1>
         </div>
         <nav>
           <ul>
@@ -70,7 +74,7 @@ export default function orders({ user, tab, orders }) {
                       ? "Credit Card"
                       : "COD"}
                 </td>
-                <td>Rp. {order.total}</td>
+                <td>{formatPrice((order.total).toFixed(0))}</td>
                 <td className={styles.orders__paid}>
                   {order.isPaid ? (
                     <img src="../../../images/verified.png" alt="" />

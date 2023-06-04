@@ -67,24 +67,24 @@ export default function security({ user, tab }) {
               type="password"
               name="current_password"
               icon="password"
-              placeholder="Current Password"
+              placeholder="Password Sekarang"
               onChange={(e) => setCurrent_password(e.target.value)}
             />
             <LoginInput
               type="password"
               name="password"
               icon="password"
-              placeholder="New Password"
+              placeholder="Password Baru"
               onChange={(e) => setPassword(e.target.value)}
             />
             <LoginInput
               type="password"
               name="conf_password"
               icon="password"
-              placeholder="Confirm Password"
+              placeholder="Konfirmasi Password"
               onChange={(e) => setConf_password(e.target.value)}
             />
-            <CircledIconBtn type="submit" text="Change" />
+            <CircledIconBtn type="submit" text="Ubah Password" />
             <br />
             {error && <span className={styles.error}>{error}</span>}
             {success && <span className={styles.success}>{success}</span>}

@@ -32,6 +32,11 @@ export default function ProductCard({ product }) {
         })
     );
   }, [active, product]);
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price);
+  };
+
   return (
     <div className={styles.product}>
       <div className={styles.product__container}>
@@ -55,8 +60,8 @@ export default function ProductCard({ product }) {
           </h1>
           <span>
             {prices.length === 1
-              ? `Rp.${prices[0]}`
-              : `Rp.${prices[0]}-${prices[prices.length - 1]}`}
+              ? `${formatPrice(prices[0])}`
+              : `${formatPrice(prices[0])}-${formatPrice(prices[prices.length - 1])}`}
           </span>
           {/* <div className={styles.product__colors}>
             {styless &&

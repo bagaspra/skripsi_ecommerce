@@ -231,11 +231,11 @@ export default function Browse({
               replaceQuery={replaceQuery}
             />
             <SizesFilter sizes={sizes} sizeHandler={sizeHandler} />
-            <ColorsFilter
+            {/* <ColorsFilter
               colors={colors}
               colorHandler={colorHandler}
               replaceQuery={replaceQuery}
-            />
+            /> */}
             {/* <BrandsFilter
               brands={brands}
               brandHandler={brandHandler}
