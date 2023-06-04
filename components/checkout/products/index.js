@@ -2,7 +2,10 @@ import { FaStaylinked } from 'react-icons/fa';
 import styles from './styles.module.scss';
 
 export default function Products({ cart }) {
-  console.log(cart)
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price);
+  };
+
   return (
     <div className={styles.products}>
       <div className={styles.products__header}>
@@ -30,13 +33,13 @@ export default function Products({ cart }) {
                 : product.name}
             </div>
             <div className={styles.product__price}>
-              Rp. {(product.price * product.qty).toFixed(2)}
+              {formatPrice((product.price * product.qty).toFixed(2))}
             </div>
           </div>
         ))}
       </div>
       <div className={styles.products__total}>
-        Subtotal : <b>Rp. {cart.cartTotal}</b>
+        Subtotal : <b>{formatPrice(cart.cartTotal)}</b>
       </div>
     </div>
   );

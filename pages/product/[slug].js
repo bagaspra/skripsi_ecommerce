@@ -60,6 +60,13 @@ export async function getServerSideProps(context) {
     .sort((a, b) => {
       return a - b;
     });
+
+  const formatPrice = (price) => {
+    return price.toLocaleString("id-ID");
+  };
+
+  const formattedPrices = prices.map((price) => formatPrice(parseFloat(price)));
+
   let newProduct = {
     ...product,
     style,
@@ -71,11 +78,13 @@ export async function getServerSideProps(context) {
       return p.color;
     }),
     priceRange: subProduct.discount
-      ? `Rp. ${(prices[0] - prices[0] / subProduct.discount).toFixed(2)} - Rp. ${(
-        prices[prices.length - 1] -
-        prices[prices.length - 1] / subProduct.discount
+      ? `Rp. ${(
+        formattedPrices[0] - formattedPrices[0] / subProduct.discount
+      ).toFixed(2)} - Rp. ${(
+        formattedPrices[prices.length - 1] -
+        formattedPrices[prices.length - 1] / subProduct.discount
       ).toFixed(2)}`
-      : `Dari ${prices[0]} to ${prices[prices.length - 1]}`,
+      : `Dari ${formattedPrices[0]} hingga ${formattedPrices[prices.length - 1]}`,
     price:
       subProduct.discount > 0
         ? (

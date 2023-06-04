@@ -240,7 +240,7 @@ function EditProductPage({ parents, categories }) {
 
     return (
         <Layout>
-            <div className={styles.header}>Edit Product</div>
+            <div className={styles.header}>Edit Produk</div>
             <Formik
                 enableReinitialize
                 initialValues={{
@@ -266,7 +266,7 @@ function EditProductPage({ parents, categories }) {
                         <Images
                             name="imageInputFile"
                             header="Gambar Produk"
-                            text="Add images"
+                            text="Tambah Gambar"
                             images={images}
                             setImages={setImages}
                             setColorImage={setColorImage}
@@ -310,9 +310,9 @@ function EditProductPage({ parents, categories }) {
                         <SingularSelect
                             name="category"
                             value={selectedCategory}
-                            placeholder="Category"
+                            placeholder="kategori"
                             data={categories}
-                            header="Select a Category"
+                            header="Pilih kategori"
                             handleChange={handleChange}
                             disabled={product.parent}
                         />
@@ -320,16 +320,16 @@ function EditProductPage({ parents, categories }) {
                             <MultipleSelect
                                 value={product.subCategories}
                                 data={subs}
-                                header="Select SubCategories"
+                                header="Pilih Subkategori"
                                 name="subCategories"
 
                                 handleChange={handleChange}
                             />
                         )}
-                        <div className={styles.header}>Basic Infos</div>
+                        <div className={styles.header}>Info Produk</div>
                         <AdminInput
                             type="text"
-                            label="Name"
+                            label="Nama"
                             name="name"
                             value={product.name}
                             placholder="Product name"
@@ -337,7 +337,7 @@ function EditProductPage({ parents, categories }) {
                         />
                         <AdminInput
                             type="text"
-                            label="Description"
+                            label="Deskripsi"
                             name="description"
                             placholder="Product description"
                             value={product.description}
@@ -361,7 +361,7 @@ function EditProductPage({ parents, categories }) {
                         />
                         <AdminInput
                             type="text"
-                            label="Discount"
+                            label="Diskon"
                             name="discount"
                             value={product.discount}
                             placholder="Product discount"
@@ -389,7 +389,7 @@ function EditProductPage({ parents, categories }) {
                             className={`${styles.btn} ${styles.btn__primary} ${styles.submit_btn}`}
                             type="submit"
                         >
-                            Edit Product
+                            Edit Produk
                         </button>
                     </Form>
                 )}

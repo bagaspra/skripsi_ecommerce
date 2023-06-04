@@ -87,6 +87,10 @@ export default function order({
   function onErroHandler(error) {
     console.log(error);
   }
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price);
+  };
+
   return (
     <>
       <Header />
@@ -143,10 +147,10 @@ export default function order({
                       {product.size}
                     </div>
                     <div className={styles.product__infos_priceQty}>
-                      Rp. {product.price} x {product.qty}
+                      {formatPrice(product.price)} x {product.qty}
                     </div>
                     <div className={styles.product__infos_total}>
-                      Rp. {product.price * product.qty}
+                      {formatPrice(product.price * product.qty)}
                     </div>
                   </div>
                 </div>
@@ -156,17 +160,17 @@ export default function order({
                   <>
                     <div className={styles.order__products_total_sub}>
                       <span>Subtotal</span>
-                      <span>Rp. {orderData.totalBeforeDiscount}</span>
+                      <span>{formatPrice(orderData.totalBeforeDiscount)}</span>
                     </div>
                     <div className={styles.order__products_total_sub}>
                       <span>
                         Kupon Diterapkan <em>({orderData.couponApplied})</em>{' '}
                       </span>
                       <span>
-                        Rp. -
-                        {(
+                        -
+                        {formatPrice((
                           orderData.totalBeforeDiscount - orderData.total
-                        ).toFixed(2)}
+                        ).toFixed(0))}
                       </span>
                     </div>
                     {/* <div className={styles.order__products_total_sub}>
@@ -177,7 +181,7 @@ export default function order({
                       className={`${styles.order__products_total_sub} ${styles.bordertop}`}
                     >
                       <span>TOTAL PEMBAYARAN</span>
-                      <b>Rp. {orderData.total}</b>
+                      <b>{formatPrice((orderData.total).toFixed(0))}</b>
                     </div>
                   </>
                 ) : (

@@ -7,20 +7,23 @@ export default function Checkout({
   selected,
   saveCartToDbHandler,
 }) {
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price);
+  };
   return (
     <div className={`${styles.cart__checkout} ${styles.card}`}>
       <h2>Ringkasan Pesanan</h2>
-      <div className={styles.cart__checkout_line}>
+      {/* <div className={styles.cart__checkout_line}>
         <span>Subtotal</span>
         <span>Rp. {subtotal}</span>
-      </div>
-      <div className={styles.cart__checkout_line}>
+      </div> */}
+      {/* <div className={styles.cart__checkout_line}>
         <span>Pengiriman</span>
         <span>Rp. +{shippingFee}</span>
-      </div>
+      </div> */}
       <div className={styles.cart__checkout_total}>
         <span>Total</span>
-        <span>Rp. {total}</span>
+        <span>{formatPrice(total)}</span>
       </div>
       <div className={styles.submit}>
         <button

@@ -20,7 +20,7 @@ export default function Summary({
   const [shippingPrice, setShippingPrice] = useState(0);
 
   useEffect(() => {
-    if (selectedAddress?.city === 'Makassar') {
+    if (selectedAddress?.city == 'Makassar') {
       setShippingPrice(50000);
     } else {
       setShippingPrice(0);
@@ -67,8 +67,10 @@ export default function Summary({
       setOrder_Error(error.response.data.message);
     }
   };
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price);
+  };
 
-  console.log(shippingPrice)
 
   return (
     <div className={styles.summary}>
@@ -96,13 +98,11 @@ export default function Summary({
                 Terapkan
               </button>
               <div className={styles.infos}>
-                {selectedAddress?.city === 'Makassar' && (
-                  <span>
-                    Biaya Pengiriman : <b>Rp. {shippingPrice}</b>
-                  </span>
-                )}
                 <span>
-                  Total : Rp. <b>{cart.cartTotal + shippingPrice}</b>
+                  Biaya Pengiriman : <b>{formatPrice(shippingPrice)}</b>
+                </span>
+                <span>
+                  Total : <b>{formatPrice(cart.cartTotal + shippingPrice)}</b>
                 </span>
                 {discount > 0 && (
                   <span className={styles.coupon_span}>
@@ -111,7 +111,7 @@ export default function Summary({
                 )}
                 {totalAfterDiscount < cart.cartTotal && totalAfterDiscount !== '' && (
                   <span>
-                    Total Akhir : <b>Rp. {totalAfterDiscount + shippingPrice}</b>
+                    Total Akhir : <b>{formatPrice((totalAfterDiscount + shippingPrice).toFixed(0))}</b>
                   </span>
                 )}
               </div>

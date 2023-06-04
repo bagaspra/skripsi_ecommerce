@@ -76,40 +76,45 @@ export default function Infos({ product, setActiveImg }) {
     }
   };
   ///---------------------------------
-  const handleWishlist = async () => {
-    try {
-      if (!session) {
-        return signIn();
-      }
-      const { data } = await axios.put('/api/user/wishlist', {
-        product_id: product._id,
-        style: product.style,
-      });
-      dispatch(
-        showDialog({
-          header: 'Product Added to Whishlist Successfully',
-          msgs: [
-            {
-              msg: data.message,
-              type: 'success',
-            },
-          ],
-        })
-      );
-    } catch (error) {
-      dispatch(
-        showDialog({
-          header: 'Whishlist Error',
-          msgs: [
-            {
-              msg: error.response.data.message,
-              type: 'error',
-            },
-          ],
-        })
-      );
-    }
+  // const handleWishlist = async () => {
+  //   try {
+  //     if (!session) {
+  //       return signIn();
+  //     }
+  //     const { data } = await axios.put('/api/user/wishlist', {
+  //       product_id: product._id,
+  //       style: product.style,
+  //     });
+  //     dispatch(
+  //       showDialog({
+  //         header: 'Product Added to Whishlist Successfully',
+  //         msgs: [
+  //           {
+  //             msg: data.message,
+  //             type: 'success',
+  //           },
+  //         ],
+  //       })
+  //     );
+  //   } catch (error) {
+  //     dispatch(
+  //       showDialog({
+  //         header: 'Whishlist Error',
+  //         msgs: [
+  //           {
+  //             msg: error.response.data.message,
+  //             type: 'error',
+  //           },
+  //         ],
+  //       })
+  //     );
+  //   }
+  // };
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price);
   };
+
   return (
     <div className={styles.infos}>
       <DialogModal />
@@ -128,14 +133,14 @@ export default function Infos({ product, setActiveImg }) {
           {product.numReviews == 1 ? ' ulasan' : ' ulasan'})
         </div>
         <div className={styles.infos__price}>
-          {!size ? <h2>{product.priceRange}</h2> : <h1>Rp. {product.price}</h1>}
+          {!size ? <h2>{product.priceRange}</h2> : <h1>{formatPrice(product.price)}</h1>}
           {product.discount > 0 ? (
             <h3>
-              {size && <span>Rp. {product.priceBefore}</span>}
+              {size && <span>{formatPrice(product.priceBefore)}</span>}
               <span>(-{product.discount}%)</span>
             </h3>
           ) : (
-            ''
+            ""
           )}
         </div>
         <span className={styles.infos__shipping}>

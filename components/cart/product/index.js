@@ -38,6 +38,10 @@ export default function Product({ product, selected, setSelected }) {
       setSelected([...selected, product]);
     }
   };
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price);
+  };
+
   return (
     <div className={`${styles.card} ${styles.product}`}>
       {product.quantity < 1 && <div className={styles.blur}></div>}
@@ -71,17 +75,17 @@ export default function Product({ product, selected, setSelected }) {
           <div className={styles.product__style}>
             {/* <img src={product.color.image} alt="" /> */}
             {product.size && <span>{product.size}</span>}
-            Rp. {product.price && <span>{product.price.toFixed(2)}</span>}
+            Rp. {formatPrice(product.price) && <span>{formatPrice(product.price.toFixed(2))}</span>}
             <MdOutlineKeyboardArrowRight />
           </div>
           <div className={styles.product__priceQty}>
             <div className={styles.product__priceQty_price}>
               <span className={styles.price}>
-                Rp. {(product.price * product.qty).toFixed(2)}
+                {formatPrice((product.price * product.qty).toFixed(2))}
               </span>
               {product.price !== product.priceBefore && (
                 <span className={styles.priceBefore}>
-                  Rp. {product.priceBefore}
+                  {formatPrice(product.priceBefore)}
                 </span>
               )}
               {product.discount > 0 && (
@@ -111,7 +115,7 @@ export default function Product({ product, selected, setSelected }) {
           </div>
           {product.quantity < 1 && (
             <div className={styles.notAvailable}>
-              This product is out of stock
+              Produk ini habis
             </div>
           )}
         </div>
