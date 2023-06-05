@@ -13,19 +13,19 @@ handler.post(async (req, res) => {
     await db.connectDb();
     const { name, email, password } = req.body;
     if (!name || !email || !password) {
-      return res.status(400).json({ message: 'Please fill in all fields.' });
+      return res.status(400).json({ message: 'Harap isi semua kolom.' });
     }
     if (!validateEmail(email)) {
-      return res.status(400).json({ message: 'Invalid email.' });
+      return res.status(400).json({ message: 'Email tidak valid.' });
     }
     const user = await User.findOne({ email });
     if (user) {
-      return res.status(400).json({ message: 'This email already exsits.' });
+      return res.status(400).json({ message: 'Email ini sudah ada.' });
     }
     if (password.length < 6) {
       return res
         .status(400)
-        .json({ message: 'Password must be atleast 6 characters.' });
+        .json({ message: 'Kata sandi harus minimal 6 karakter.' });
     }
     const cryptedPassword = await bcrypt.hash(password, 12);
     const newUser = new User({ name, email, password: cryptedPassword });
@@ -38,7 +38,7 @@ handler.post(async (req, res) => {
     sendEmail(email, url, '', 'Activate your account.', activateEmailTemplate);
     await db.disconnectDb();
     res.json({
-      message: 'Register success! Please activate your email to start.',
+      message: 'Registrasi Sukses Silahkan Login.',
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

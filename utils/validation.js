@@ -10,31 +10,31 @@ export const validateCreateProduct = (product, images) => {
   let questions = product.questions;
   const checks = [
     {
-      msg: 'Name, Description, Brand added successfully.',
+      msg: 'Nama, Deskripsi, Merek berhasil ditambahkan.',
       type: 'success',
     },
   ];
   if (images.length < 1) {
     checks.push({
-      msg: `Choose atleast 1 images (${1 - images.length} remaining).`,
+      msg: `Pilih minimal 1 gambar (${1 - images.length} tersisa).`,
       type: 'error',
     });
   } else {
     checks.push({
-      msg: `${images.length} images choosen.`,
+      msg: `${images.length} gambar yang dipilih.`,
       type: 'success',
     });
   }
   for (var i = 0; i < sizes.length; i++) {
     if (sizes[i].qty == '' || sizes[i].price == '' || sizes[i].size == '') {
       checks.push({
-        msg: `Please fill all informations on sizes.`,
+        msg: `Harap isi semua informasi type.`,
         type: 'error',
       });
       break;
     } else {
       checks.push({
-        msg: `Atleast one size/qty/price added.`,
+        msg: `Setidaknya satu type/jumlah/harga ditambahkan.`,
         type: 'success',
       });
     }
@@ -42,13 +42,13 @@ export const validateCreateProduct = (product, images) => {
   for (var i = 0; i < details.length; i++) {
     if (details[i].name == '' || details[i].value == '') {
       checks.push({
-        msg: `Please fill all informations on details.`,
+        msg: `Harap isi semua informasi pada detail.`,
         type: 'error',
       });
       break;
     } else {
       checks.push({
-        msg: `Atleast one detail added.`,
+        msg: `Setidaknya satu detail ditambahkan.`,
         type: 'success',
       });
     }
@@ -81,31 +81,31 @@ export const validateEditProduct = (product, images) => {
   let questions = product.questions;
   const checks = [
     {
-      msg: 'Name, Description, Brand updated successfully.',
+      msg: 'Nama, Deskripsi, Merek berhasil diperbarui.',
       type: 'success',
     },
   ];
   if (images && images.length < 1) {
     checks.push({
-      msg: `Choose atleast 1 images (${1 - images.length} remaining).`,
+      msg: `Pilih minimal 1 gambar (${1 - images.length} tersisa).`,
       type: 'error',
     });
   } else if (images) {
     checks.push({
-      msg: `${images.length} images chosen.`,
+      msg: `${images.length} gambar yang dipilih.`,
       type: 'success',
     });
   }
   for (var i = 0; i < sizes?.length; i++) {
     if (sizes[i].qty === '' || sizes[i].price === '' || sizes[i].size === '') {
       checks.push({
-        msg: `Please fill all information for type.`,
+        msg: `Harap isi semua informasi untuk tipe.`,
         type: 'error',
       });
       break;
     } else {
       checks.push({
-        msg: `At least one type/qty/price added.`,
+        msg: `Setidaknya satu jenis/jumlah/harga ditambahkan.`,
         type: 'success',
       });
     }
@@ -113,13 +113,13 @@ export const validateEditProduct = (product, images) => {
   for (var i = 0; i < details.length; i++) {
     if (details[i].name === '' || details[i].value === '') {
       checks.push({
-        msg: `Please fill all information for details.`,
+        msg: `Harap isi semua informasi untuk detailnya.`,
         type: 'error',
       });
       break;
     } else {
       checks.push({
-        msg: `At least one detail added.`,
+        msg: `Setidaknya satu detail ditambahkan.`,
         type: 'success',
       });
     }

@@ -61,12 +61,12 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
       .matches(/^[aA-zZ]/, 'Nomor dan karakter spesial tidak bisa digunakan'),
     email: Yup.string()
       .required(
-        "You'll need this when you log in and if you ever need to reset your password."
+        "Anda memerlukan ini saat masuk dan jika Anda perlu mengatur ulang kata sandi."
       )
       .email('Silahkan isi alamat email yang valid.'),
     password: Yup.string()
       .required(
-        'Enter a combination of at least six numbers,letters and punctuation marks(such as ! and &).'
+        'Masukkan kombinasi minimal enam angka, huruf, dan tanda baca (seperti ! dan &).'
       )
       .min(6, 'password minimal 6 karakter')
       .max(36, "password maksimal 64 karakter"),

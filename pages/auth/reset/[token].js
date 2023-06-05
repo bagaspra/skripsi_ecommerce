@@ -21,12 +21,12 @@ export default function reset({ user_id }) {
   const [loading, setLoading] = useState('');
   const passwordValidation = Yup.object({
     password: Yup.string()
-      .required('Please enter your new password.')
-      .min(6, 'Password must be atleast 6 characters.')
-      .max(36, "Password can't be more than 36 characters"),
+      .required('Silakan masukkan kata sandi baru Anda.')
+      .min(6, 'Kata sandi harus minimal 6 karakter.')
+      .max(36, "Kata sandi tidak boleh lebih dari 36 karakter"),
     conf_password: Yup.string()
-      .required('Confirm your password.')
-      .oneOf([Yup.ref('password')], 'Passwords must match.'),
+      .required('Konfirmasi password Anda.')
+      .oneOf([Yup.ref('password')], 'Kata sandi harus cocok.'),
   });
   const resetHandler = async () => {
     try {

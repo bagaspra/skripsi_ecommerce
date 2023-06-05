@@ -20,9 +20,9 @@ export default function forgot() {
   const emailValidation = Yup.object({
     email: Yup.string()
       .required(
-        "You'll need this when you log in and if you ever need to reset your password."
+        "Anda memerlukan ini saat masuk dan jika Anda perlu mengatur ulang kata sandi."
       )
-      .email('Enter a valid email address.'),
+      .email('Masukkan alamat email yang valid.'),
   });
   const forgotHandler = async () => {
     try {
@@ -77,7 +77,7 @@ export default function forgot() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
 
-                <CircledIconBtn type="submit" text="Send link" />
+                <CircledIconBtn type="submit" text="Kirim Link" />
                 <div style={{ marginTop: '10px' }}>
                   {error && <span className={styles.error}>{error}</span>}
                   {success && <span className={styles.success}>{success}</span>}
