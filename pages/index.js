@@ -36,14 +36,14 @@ export default function home({ country, products }) {
 export async function getServerSideProps() {
   db.connectDb();
   let products = await Product.find().sort({ createdAt: -1 }).lean();
-  let data = await axios
-    .get('https://api.ipregistry.co/?key=sd865uwpf7pavcxo')
-    .then((res) => {
-      return res.data.location.country;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  // let data = await axios
+  //   .get('https://api.ipregistry.co/?key=sd865uwpf7pavcxo')
+  //   .then((res) => {
+  //     return res.data.location.country;
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
   return {
     props: {
       products: JSON.parse(JSON.stringify(products)),

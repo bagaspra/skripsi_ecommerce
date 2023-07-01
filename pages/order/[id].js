@@ -4,14 +4,11 @@ import Order from '../../models/Order';
 import User from '../../models/User';
 import { IoIosArrowForward } from 'react-icons/io';
 import db from '../../utils/database';
-import {
-  PayPalButtons,
-  usePayPalScriptReducer,
-} from '@paypal/react-paypal-js';
-import { useReducer, useEffect } from 'react';
+import { useReducer } from 'react';
 import axios from 'axios';
 import StripePayment from '../../components/stripePayment';
-import { getSession } from 'next-auth/react';
+import MidtransPayment from '../../components/midtransPayment';
+
 
 function reducer(state, action) {
   switch (action.type) {
@@ -27,41 +24,22 @@ function reducer(state, action) {
 }
 export default function order({
   orderData,
-  paypal_client_id,
   stripe_public_key,
+  midtrans_client_key,
+  midtrans_server_key,
 }) {
-  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
   const [dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
     success: '',
   });
-  useEffect(() => {
-    if (!orderData._id) {
-      dispatch({
-        type: 'PAY_RESET',
-      });
-    } else {
-      paypalDispatch({
-        type: 'resetOptions',
-        value: {
-          'client-id': paypal_client_id,
-          currency: 'USD',
-        },
-      });
-      paypalDispatch({
-        type: 'setLoadingStatus',
-        value: 'pending',
-      });
-    }
-  }, [order]);
   function createOrderHanlder(data, actions) {
     return actions.order
       .create({
         purchase_units: [
           {
             amount: {
-              value: orderData.total,
+              value: parseFloat(orderData.total),
             },
           },
         ],
@@ -173,10 +151,6 @@ export default function order({
                         ).toFixed(0))}
                       </span>
                     </div>
-                    {/* <div className={styles.order__products_total_sub}>
-                      <span>Pajak</span>
-                      <span>Rp. +{orderData.taxPrice}</span>
-                    </div> */}
                     <div
                       className={`${styles.order__products_total_sub} ${styles.bordertop}`}
                     >
@@ -186,10 +160,6 @@ export default function order({
                   </>
                 ) : (
                   <>
-                    {/* <div className={styles.order__products_total_sub}>
-                      <span>Pajak</span>
-                      <span>Rp. +{orderData.taxPrice}</span>
-                    </div> */}
                     <div
                       className={`${styles.order__products_total_sub} ${styles.bordertop}`}
                     >
@@ -246,17 +216,9 @@ export default function order({
             </div>
             {!orderData.isPaid && (
               <div className={styles.order__payment}>
-                {orderData.paymentMethod == 'paypal' && (
+                {orderData.paymentMethod == 'midtrans' && (
                   <div>
-                    {isPending ? (
-                      <span>loading...</span>
-                    ) : (
-                      <PayPalButtons
-                        createOrder={createOrderHanlder}
-                        onApprove={onApproveHandler}
-                        onError={onErroHandler}
-                      ></PayPalButtons>
-                    )}
+                    <MidtransPayment total={orderData.total} order_id={orderData._id} midtrans_client_key={midtrans_client_key} />
                   </div>
                 )}
                 {orderData.paymentMethod == 'credit_card' && (
@@ -285,14 +247,16 @@ export async function getServerSideProps(context) {
   const order = await Order.findById(id)
     .populate({ path: 'user', model: User })
     .lean();
-  let paypal_client_id = process.env.PAYPAL_CLIENT_ID;
   let stripe_public_key = process.env.STRIPE_PUBLIC_KEY;
+  let midtrans_client_key = process.env.MIDTRANS_CLIENT_KEY;
+  let midtrans_server_key = process.env.MIDTRANS_SERVER_KEY;
   db.disconnectDb();
   return {
     props: {
       orderData: JSON.parse(JSON.stringify(order)),
-      paypal_client_id,
       stripe_public_key,
+      midtrans_client_key,
+      midtrans_server_key
     },
   };
 }

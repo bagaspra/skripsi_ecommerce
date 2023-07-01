@@ -6,7 +6,6 @@ import db from '../../../../utils/database';
 const handler = nc().use(auth);
 
 handler.put(async (req, res) => {
-  console.log('hello from api');
   await db.connectDb();
   const order = await Order.findById(req.qurey.id);
   if (order) {
@@ -25,5 +24,3 @@ handler.put(async (req, res) => {
     res.status(404).json({ message: 'Order is not found.' });
   }
 });
-
-export default handler;

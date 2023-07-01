@@ -111,7 +111,7 @@ export default function Summary({
                 )}
                 {totalAfterDiscount < cart.cartTotal && totalAfterDiscount !== '' && (
                   <span>
-                    Total Akhir : <b>{formatPrice((totalAfterDiscount + shippingPrice).toFixed(0))}</b>
+                    Total Akhir : <b>{formatPrice((totalAfterDiscount + shippingPrice))}</b>
                   </span>
                 )}
               </div>

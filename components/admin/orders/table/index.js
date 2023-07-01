@@ -56,8 +56,8 @@ function Row(props) {
           {row._id}
         </TableCell>
         <TableCell align="right">
-          {row.paymentMethod == 'paypal'
-            ? 'Paypal'
+          {row.paymentMethod == 'midtrans'
+            ? 'midtrans'
             : row.paymentMethod == 'credit_card'
               ? 'Credit Card'
               : 'Cash On Delievery'}

@@ -68,8 +68,8 @@ export default function orders({ user, tab, orders }) {
                   ))}
                 </td>
                 <td>
-                  {order.paymentMethod == "paypal"
-                    ? "Paypal"
+                  {order.paymentMethod == "midtrans"
+                    ? "midtrans"
                     : order.paymentMethod == "credit_card"
                       ? "Credit Card"
                       : "COD"}

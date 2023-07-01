@@ -1,11 +1,11 @@
 export const paymentMethods = [
-  // {
-  //   name: 'Paypal',
-  //   id: 'paypal',
-  //   description:
-  //     "If you don't have a paypal account,you can also pay via paypal with your credit card or bank debit card. Payment can be submitted in an currency!",
-  //   images: [],
-  // },
+  {
+    name: 'Pembayaran Indonesia',
+    id: 'midtrans',
+    description:
+      "Bayar Menggunakan bank-bank indonesia dan Dompet Digital Indonesia",
+    images: [],
+  },
   {
     name: 'Kartu Kredit',
     id: 'credit_card',
@@ -13,11 +13,6 @@ export const paymentMethods = [
     images: [
       'visa',
       'mastercard',
-      'paypal',
-      'maestro',
-      'american_express',
-      'cb',
-      'jcb',
     ],
   },
   {

@@ -456,14 +456,14 @@ export async function getServerSideProps(ctx) {
     }
     return styleRegex;
   }
-  let data = await axios
-    .get("https://api.ipregistry.co/?key=r208izz0q0icseks")
-    .then((res) => {
-      return res.data.location.country;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  // let data = await axios
+  //   .get("https://api.ipregistry.co/?key=r208izz0q0icseks")
+  //   .then((res) => {
+  //     return res.data.location.country;
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
   //-------------------------------------------------->
   db.connectDb();
   let productsDb = await Product.find({

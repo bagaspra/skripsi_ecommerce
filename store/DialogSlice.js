@@ -5,7 +5,7 @@ const initialState = {
   header: 'Error creating Product',
   msgs: [
     {
-      msg: "choose atleast 2 images",
+      msg: "pilih minimal 1 gambar",
       type: "error",
     },
     {
