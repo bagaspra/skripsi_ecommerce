@@ -4,7 +4,7 @@ import { signOut, signIn } from 'next-auth/react';
 export default function UserMenu({ session }) {
   return (
     <div className={styles.menu}>
-      <h4>Welcome to Arstrindo Shop !</h4>
+      <h4>Welcome to Astrindo Shop !</h4>
       {session ? (
         <div className={styles.flex}>
           <img src={session?.user?.image} alt="" className={styles.menu__img} />
@@ -16,9 +16,9 @@ export default function UserMenu({ session }) {
         </div>
       ) : (
         <div className={styles.flex}>
-          <button className={styles.btn_primary}>Register</button>
-          <button className={styles.btn_outlined} onClick={() => signIn()}>
-            Login
+          {/* <button className={styles.btn_primary}>Register</button> */}
+          <button className={styles.btn_primary} onClick={() => signIn()}>
+            Login/Register
           </button>
         </div>
       )}

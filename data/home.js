@@ -46,7 +46,7 @@ export const offersArray = [
 export const menuArray = [
   {
     name: 'Audio',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf59dc8317c69b3b1629f',
     subMenu: [
       {
         name: '',
@@ -58,7 +58,7 @@ export const menuArray = [
   },
   {
     name: 'Graphics Card',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf5a7c8317c69b3b162b1',
     subMenu: [
       {
         name: '',
@@ -70,7 +70,7 @@ export const menuArray = [
   },
   {
     name: 'Laptop',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf5afc8317c69b3b162c3',
     subMenu: [
       {
         name: '',
@@ -82,7 +82,7 @@ export const menuArray = [
   },
   {
     name: 'Memory',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf5b6c8317c69b3b162d5',
     subMenu: [
       {
         name: '',
@@ -94,7 +94,7 @@ export const menuArray = [
   },
   {
     name: 'Monitor',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf628c8317c69b3b16317',
     subMenu: [
       {
         name: '',
@@ -106,7 +106,7 @@ export const menuArray = [
   },
   {
     name: 'Motherboard',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf633c8317c69b3b16329',
     subMenu: [
       {
         name: '',
@@ -119,7 +119,7 @@ export const menuArray = [
 
   {
     name: 'NAS',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf63bc8317c69b3b1633b',
     subMenu: [
       {
         name: '',
@@ -132,7 +132,7 @@ export const menuArray = [
 
   {
     name: 'Networking',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf64fc8317c69b3b1634d',
     subMenu: [
       {
         name: '',
@@ -145,7 +145,7 @@ export const menuArray = [
 
   {
     name: 'Personal Computer (PC)',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf655c8317c69b3b1635f',
     subMenu: [
       {
         name: '',
@@ -157,7 +157,7 @@ export const menuArray = [
   },
   {
     name: 'Processor',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf65fc8317c69b3b16371',
     subMenu: [
       {
         name: '',
@@ -169,7 +169,7 @@ export const menuArray = [
   },
   {
     name: 'Server',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf669c8317c69b3b16383',
     subMenu: [
       {
         name: '',
@@ -181,7 +181,7 @@ export const menuArray = [
   },
   {
     name: 'Storage',
-    link: '',
+    link: 'https://www.astrindo.shop/browse?search=Asus&category=64abf671c8317c69b3b16395',
     subMenu: [
       {
         name: '',
